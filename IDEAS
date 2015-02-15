@@ -1,0 +1,13 @@
+POST passes?
+QoS and ACLs configured?
+Rogue static routes?
+Syslog errors?
+OSPF neighbours?
+OSPF metrics correct?
+All unconfigured interfaces are admin down.                           
+Members of aggregate interfaces correctly marked.
+Move to Google's textFSM?
+Move core/ to core_rules/
+
+line; stanza; block
+return more details in the test failure - e.g. which thing failed

@@ -1,0 +1,37 @@
+This is pyvern, a network management and configuration consistency
+checker written in python.
+
+1. INSTALLATION
+
+You'll need a bunch of python modules installed. At the very least you'll need:
+
+* unittest2 (if running python < 2.7)
+* ciscoconfparse
+* py.test (not _absolutely_ necessary, but very handy).
+
+2. RUNNING
+
+To run it locally, install all the dependent modules, put your configs
+in a local directory, then look at the Makefile for an invocation
+pattern.
+
+You can export the results to Hudson or similar with the default Makefile
+action, which can produce a continuous build system that periodically pulls
+down your router configs and checks them for correctness.
+
+3. EXTENDING
+
+Much of the power of the system comes from extending the basic checks provided
+for in the core/ directory. To do this, look at the example files in the
+directory "user_supplied".
+
+To add parsing for a new "fact" about a router, look at
+abstract_network_device to find out whether your pet whatsit is
+present already. If not, find the appropriate place to add it, then
+extend config_parse to parse it and set the relevant property.  Then
+you can write a test about it. There's some useful functions in
+test_infrastructure to allow you to do this. Don't forget you can mark
+dependencies, which should help things run a bit faster/eliminate some
+noise.
+
+Niall Richard Murphy <niallm@gmail.com>

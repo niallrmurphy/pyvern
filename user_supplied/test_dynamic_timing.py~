@@ -1,0 +1,45 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+test_user_timing.py
+
+Created by Niall Richard Murphy on 2011-05-30.
+"""
+
+import config_parse
+import constants
+import os
+import unittest2
+import sys
+import test_infrastructure as ti
+import user_supplied.user_definitions as ud
+
+
+def suite():
+  tests = ['testNTPServersCorrect']
+  return unittest2.TestSuite(map(TestUserTiming, tests))
+
+
+class TestUserTiming(ti.defaultTestConfiguration):
+
+  def setUp(self):
+    self.all_router_names = [[x.hostname] for x in self.cp.routers]
+    self.all_router_names.sort()
+
+  def testNTPServersCorrect(self):
+    results = ti.MeetsCriteriaReturnAttribute(self.cp.routers,
+                                              'ntp_servers',
+                                              ud.areNTPServersCorrect)
+    ud._CORRECT_NTP_SERVERS.sort()
+    expected = map(lambda x: ti.MakeDict(x, ud._CORRECT_NTP_SERVERS),
+                   self.all_router_names)
+    self.assertEqual(results, expected,
+      "These routers should have NTP servers matching the policy: %s" % (
+        results))
+
+if __name__ == '__main__':
+  for t in self.cp.routers:
+    print t.describe()
+  suite = suite()
+  unittest2.main(testRunner=unittest2.TextTestRunner(verbosity=2)).run(suite)
+

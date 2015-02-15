@@ -1,0 +1,1748 @@
+!RANCID-CONTENT-TYPE: cisco
+!
+
+!Chassis type: WS-C4900M - a MPC8548 router
+!CPU: MPC8548, MPC8548 CPU at 1.33GHz, Cisco Catalyst 4900M
+!
+!Memory: main 524288K
+!Memory: nvram 511K
+!
+!Processor ID: JAE14250B9K
+!
+!
+!Image: Software: cat4500e-ENTSERVICESK9-M, 12.2(50)SG2, RELEASE SOFTWARE (fc2)
+!Image: Compiled: Mon 27-Apr-09 18:36 by prod_rel_team
+!Image: bootflash:cat4500e-entservicesk9-mz.122-50.SG2.bin
+!
+!BootFlash: BOOT variable = bootflash:cat4500e-entservicesk9-mz.122-50.SG2.bin,1;
+!BootFlash: CONFIG_FILE variable does not exist
+!BootFlash: BOOTLDR variable does not exist
+!BootFlash: Configuration register is 0x2102
+!
+!Flash: bootflash: Directory of bootflash:/
+!Flash: bootflash:     6  -rw-    23160397  Jun 30 2010 02:32:46 -07:00  cat4500e-entservicesk9-mz.122-50.SG3.bin
+!Flash: bootflash:     7  -rw-    23162948  Jan 11 2011 12:18:52 -08:00  cat4500e-entservicesk9-mz.122-50.SG2.bin
+!Flash: bootflash:    19  -rw-       57874  Jan 11 2011 13:16:50 -08:00  sr05.syd01.conf
+!Flash: bootflash: 131436544 bytes total (77565952 bytes free)
+!Flash: system: Directory of system:/
+!Flash: system:     2  -r--           0                    <no date>  default-running-config
+!Flash: system:     4  dr-x           0                    <no date>  memory
+!Flash: system:     1  -rw-       56424  Mar 18 2011 09:55:48 -07:00  running-config
+!Flash: system:     3  dr-x           0                    <no date>  vfiles
+!Flash: system: No space information available
+!Flash: tmpsys: Directory of tmpsys:/
+!Flash: tmpsys:     6  drw-           0                    <no date>  eem_lib_system
+!Flash: tmpsys:     5  drw-           0                    <no date>  eem_lib_user
+!Flash: tmpsys:     4  drw-           0                    <no date>  eem_policy
+!Flash: tmpsys:     8  drw-           0                    <no date>  eem_pub
+!Flash: tmpsys:    15  -rw-           0                    <no date>  eem_rpc_0
+!Flash: tmpsys:    16  -rw-           0                    <no date>  eem_rpc_1
+!Flash: tmpsys:    25  -rw-           0                    <no date>  eem_rpc_10
+!Flash: tmpsys:    26  -rw-           0                    <no date>  eem_rpc_11
+!Flash: tmpsys:    27  -rw-           0                    <no date>  eem_rpc_12
+!Flash: tmpsys:    28  -rw-           0                    <no date>  eem_rpc_13
+!Flash: tmpsys:    29  -rw-           0                    <no date>  eem_rpc_14
+!Flash: tmpsys:    30  -rw-           0                    <no date>  eem_rpc_15
+!Flash: tmpsys:    17  -rw-           0                    <no date>  eem_rpc_2
+!Flash: tmpsys:    18  -rw-           0                    <no date>  eem_rpc_3
+!Flash: tmpsys:    19  -rw-           0                    <no date>  eem_rpc_4
+!Flash: tmpsys:    20  -rw-           0                    <no date>  eem_rpc_5
+!Flash: tmpsys:    21  -rw-           0                    <no date>  eem_rpc_6
+!Flash: tmpsys:    22  -rw-           0                    <no date>  eem_rpc_7
+!Flash: tmpsys:    23  -rw-           0                    <no date>  eem_rpc_8
+!Flash: tmpsys:    24  -rw-           0                    <no date>  eem_rpc_9
+!Flash: tmpsys:     7  drw-           0                    <no date>  eem_temp
+!Flash: tmpsys:     1  dr-x           0                    <no date>  lib
+!Flash: tmpsys: No space information available
+!Flash: crashinfo: Directory of crashinfo:/
+!Flash: crashinfo:     1  -r--         140                    <no date>  data
+!Flash: crashinfo:     2  -r--           0                    <no date>  data.bin
+!Flash: crashinfo: No space information available
+!Flash: cat4000_flash: Directory of cat4000_flash:/
+!Flash: cat4000_flash:     1  -rw-         616                    <no date>  vlan.dat
+!Flash: cat4000_flash: 524284 bytes total (523668 bytes free)
+!Flash: profiler: Directory of profiler:/
+!Flash: profiler:     1  -r--           0                    <no date>  data
+!Flash: profiler: No space information available
+!Flash: nvram: Directory of nvram:/
+!Flash: nvram:   512  -rw-       16179                    <no date>  startup-config
+!Flash: nvram:   513  ----        1905                    <no date>  private-config
+!Flash: nvram:   514  -rw-       16179                    <no date>  underlying-config
+!Flash: nvram:     1  ----          75                    <no date>  persistent-data
+!Flash: nvram:     2  -rw-         710                    <no date>  ifIndex-table.gz
+!Flash: nvram:     3  ----           0                    <no date>  rf_cold_starts
+!Flash: nvram: 524284 bytes total (503076 bytes free)
+!
+!Slot 1: type 4900M 10GE (X2)                       , 8 ports
+!Slot 2: type 10GE (X2), 1000BaseX (SFP)            , 24 ports
+!Slot 3: type 10GE (X2), 1000BaseX (SFP)            , 24 ports
+!Slot 1: part WS-C4900M, serial JAE14260E5C
+!Slot 2: part WS-X4908-10GE, serial JAE1347OBBC
+!Slot 3: part WS-X4908-10GE, serial JAE1347O9TV
+!Slot 1: hvers 1.6, firmware 12.2(44r)SG5, sw 12.2(50)SG2
+!Slot 2: hvers 1.1, firmware , sw Ok
+!Slot 3: hvers 1.1, firmware , sw Ok
+!
+!NAME: "Switch System", DESCR: "Cisco Systems, Inc. WS-C4900M 3 slot switch "
+!PID: MIDPLANE
+!VID:      
+!SN: JAE14250B9K
+!NAME: "Slot 1", DESCR: "WS-C4900M 3 slot switch chassis slot"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Linecard(slot 1)", DESCR: "4900M 10GE (X2) with 8 10GE X2 ports"
+!PID: WS-C4900M
+!VID: V07  
+!SN: JAE14260E5C
+!NAME: "Port Container 1/1", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/1", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14209641
+!NAME: "Port Container 1/2", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/2", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14209657
+!NAME: "Port Container 1/3", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/3", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14207385
+!NAME: "Port Container 1/4", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/4", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213087
+!NAME: "Port Container 1/5", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/5", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213117
+!NAME: "Port Container 1/6", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/6", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213080
+!NAME: "Port Container 1/7", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/7", DESCR: "10Gbase-LR"
+!PID: X2-10GB-LR
+!VID: V04  
+!SN: SPC143700D8
+!NAME: "Port Container 1/8", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet1/8", DESCR: "10Gbase-LR"
+!PID: X2-10GB-LR
+!VID: V04  
+!SN: SPC143002PE
+!NAME: "Slot 2", DESCR: "WS-C4900M 3 slot switch chassis slot"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Linecard(slot 2)", DESCR: "10GE (X2), 1000BaseX (SFP) with 8 10GE X2 ports"
+!PID: WS-X4908-10GE
+!VID: V02  
+!SN: JAE1347OBBC
+!NAME: "Port Container 2/1", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/1", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14209558
+!NAME: "Port Container 2/2", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/2", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14209644
+!NAME: "Port Container 2/3", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/3", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213335
+!NAME: "Port Container 2/4", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/4", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14209509
+!NAME: "Port Container 2/5", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/5", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213245
+!NAME: "Port Container 2/6", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/6", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14207062
+!NAME: "Port Container 2/7", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/7", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC13503575
+!NAME: "Port Container 2/8", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet2/8", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14203223
+!NAME: "Slot 3", DESCR: "WS-C4900M 3 slot switch chassis slot"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Linecard(slot 3)", DESCR: "10GE (X2), 1000BaseX (SFP) with 8 10GE X2 ports"
+!PID: WS-X4908-10GE
+!VID: V02  
+!SN: JAE1347O9TV
+!NAME: "Port Container 3/1", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/1", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213441
+!NAME: "Port Container 3/2", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/2", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14206222
+!NAME: "Port Container 3/3", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/3", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213180
+!NAME: "Port Container 3/4", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/4", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14207016
+!NAME: "Port Container 3/5", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/5", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14173589
+!NAME: "Port Container 3/6", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/6", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213517
+!NAME: "Port Container 3/7", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/7", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14213002
+!NAME: "Port Container 3/8", DESCR: "Port Container"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "TenGigabitEthernet3/8", DESCR: "10Gbase-CX4"
+!PID: X2-10GB-CX4
+!VID: V03  
+!SN: OPC14209677
+!NAME: "Fan Tray Bay", DESCR: "Container of Fan Tray"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Fan", DESCR: "FanTray"
+!PID: WS-X4992
+!VID: V02  
+!SN: FOX1414GVUL
+!NAME: "Container of Power Supply Bay", DESCR: "Container of Container of Power Supply"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Power Supply Bay 1 ", DESCR: "Container of Power Supply"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Power Supply 1", DESCR: "Power Supply ( AC 960W )"
+!PID: PWR-C49M-1000AC
+!VID: V01  
+!SN: TLD141950JL
+!NAME: "Power Supply 1 Fan", DESCR: "Power Supply Fan Sensor"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Power Supply Bay 2 ", DESCR: "Container of Power Supply"
+!PID: 
+!VID:      
+!SN:            
+!NAME: "Power Supply 2", DESCR: "Power Supply ( AC 960W )"
+!PID: PWR-C49M-1000AC
+!VID: V01  
+!SN: TLD141950K2
+!NAME: "Power Supply 2 Fan", DESCR: "Power Supply Fan Sensor"
+!PID: 
+!VID:      
+!SN:            
+!
+!VTP: VTP Version capable             : 1 to 3
+!VTP: VTP version running             : 1
+!VTP: VTP Domain Name                 : 
+!VTP: VTP Pruning Mode                : Disabled
+!VTP: VTP Traps Generation            : Disabled
+!VTP: Device ID                       : c84c.751e.d400
+!VTP: Feature VLAN:
+!VTP: --------------
+!VTP: VTP Operating Mode                : Transparent
+!VTP: Maximum VLANs supported locally   : 1005
+!VTP: Number of existing VLANs          : 6
+!VTP: Configuration Revision            : 0
+!VTP: MD5 digest                        : 0xED 0xF7 0x32 0x37 0xC5 0xEF 0xEC 0xBA 
+!VTP:                                     0xDA 0x18 0xB6 0xB3 0x7C 0x4B 0x8A 0xCB 
+!
+!VLAN: VLAN Name                             Status    Ports
+!VLAN: ---- -------------------------------- --------- -------------------------------
+!VLAN: 1    default                          active    Te1/5, Te1/6, Gi2/9, Gi2/10
+!VLAN:                                                 Gi2/11, Gi2/12, Gi2/13, Gi2/14
+!VLAN:                                                 Gi2/15, Gi2/16, Gi2/17, Gi2/18
+!VLAN:                                                 Gi2/19, Gi2/20, Gi2/21, Gi2/22
+!VLAN:                                                 Gi2/23, Gi2/24, Gi3/9, Gi3/10
+!VLAN:                                                 Gi3/11, Gi3/12, Gi3/13, Gi3/14
+!VLAN:                                                 Gi3/15, Gi3/16, Gi3/17, Gi3/18
+!VLAN:                                                 Gi3/19, Gi3/20, Gi3/21, Gi3/22
+!VLAN:                                                 Gi3/23, Gi3/24
+!VLAN: 10   VLAN0010                         active    Te1/1, Te1/2, Te1/3, Te1/4
+!VLAN:                                                 Te2/1, Te2/2, Te2/3, Te2/4
+!VLAN:                                                 Te2/5, Te2/6, Te2/7, Te2/8
+!VLAN:                                                 Te3/1, Te3/2, Te3/3, Te3/4
+!VLAN:                                                 Te3/5, Te3/6, Te3/7, Te3/8
+!VLAN: 1002 fddi-default                     act/unsup 
+!VLAN: 1003 token-ring-default               act/unsup 
+!VLAN: 1004 fddinet-default                  act/unsup 
+!VLAN: 1005 trnet-default                    act/unsup 
+!VLAN: VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+!VLAN: ---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+!VLAN: 1    enet  100001     1500  -      -      -        -    -        0      0   
+!VLAN: 10   enet  100010     1500  -      -      -        -    -        0      0   
+!VLAN: 1002 fddi  101002     1500  -      -      -        -    -        0      0   
+!VLAN: 1003 tr    101003     1500  -      -      -        -    -        0      0   
+!VLAN: 1004 fdnet 101004     1500  -      -      -        ieee -        0      0   
+!VLAN: 1005 trnet 101005     1500  -      -      -        ibm  -        0      0   
+!VLAN: Remote SPAN VLANs
+!VLAN: ------------------------------------------------------------------------------
+!VLAN: Primary Secondary Type              Ports
+!VLAN: ------- --------- ----------------- ------------------------------------------
+!
+!
+version 12.2
+no service pad
+service tcp-keepalives-in
+service tcp-keepalives-out
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+service compress-config
+no service dhcp
+service unsupported-transceiver
+!
+hostname sr05.syd01
+!
+boot-start-marker
+boot system flash bootflash:cat4500e-entservicesk9-mz.122-50.SG2.bin
+boot-end-marker
+!
+logging buffered 65536 informational
+no logging console
+logging event link-status global
+!enable secret <removed>
+!
+!username netops privilege 15 secret <removed>
+aaa new-model
+!
+aaa authentication login default group tacacs+ local
+aaa authorization exec default group tacacs+ local 
+aaa authorization commands 1 default group tacacs+ local 
+aaa authorization commands 15 default group tacacs+ local 
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 1 default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+aaa session-id common
+clock timezone PST -8
+clock summer-time PDT recurring
+ip subnet-zero
+no ip source-route
+ip domain-name net.google.com
+ip name-server 172.20.0.153
+ip name-server 172.20.0.155
+!
+no ip bootp server
+ip vrf mgmtVrf
+!
+ipv6 unicast-routing
+vtp mode transparent
+!
+power redundancy-mode redundant
+port-channel load-balance src-dst-port
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+no spanning-tree vlan 1-4094
+!
+vlan internal allocation policy ascending
+!
+vlan 10 
+!
+ip tcp path-mtu-discovery
+ip scp server enable
+!
+class-map match-all system-cpp-cdp
+ match access-group name system-cpp-cdp
+class-map match-all control-plane-filter
+ match access-group name control-plane-filter
+class-map match-all system-cpp-pim
+ match access-group name system-cpp-pim
+class-map match-all system-cpp-garp-range
+ match access-group name system-cpp-garp-range
+class-map match-any af4
+ match  precedence 4 
+class-map match-any af3
+ match  precedence 3 
+class-map match-any af2
+ match  precedence 2 
+class-map match-any af1
+ match  precedence 1 
+class-map match-any be1
+ match any 
+class-map match-all system-cpp-bpdu-range
+ match access-group name system-cpp-bpdu-range
+class-map match-any nc1
+ match  precedence 6  7 
+class-map match-all system-cpp-dhcp-cs
+ match access-group name system-cpp-dhcp-cs
+class-map match-all system-cpp-dhcp-sc
+ match access-group name system-cpp-dhcp-sc
+class-map match-all ssh-filter
+ match access-group name MANAGEMENT-ACL
+class-map match-all system-cpp-all-systems-on-subnet
+ match access-group name system-cpp-all-systems-on-subnet
+class-map match-all ntp-filter
+ match access-group name ntp-filter
+class-map match-all system-cpp-all-routers-on-subnet
+ match access-group name system-cpp-all-routers-on-subnet
+class-map match-all system-cpp-ripv2
+ match access-group name system-cpp-ripv2
+class-map match-all system-cpp-dot1x
+ match access-group name system-cpp-dot1x
+class-map match-all system-cpp-dhcp-ss
+ match access-group name system-cpp-dhcp-ss
+class-map match-all dns-filter
+ match access-group name dns-filter
+class-map match-all icmp-policer
+ match access-group name icmp-policer
+class-map match-all traceroute-policer
+ match access-group name traceroute-policer
+class-map match-all system-cpp-sstp
+ match access-group name system-cpp-sstp
+class-map match-all system-cpp-ospf
+ match access-group name system-cpp-ospf
+class-map match-all system-cpp-igmp
+ match access-group name system-cpp-igmp
+class-map match-all system-cpp-ip-mcast-linklocal
+ match access-group name system-cpp-ip-mcast-linklocal
+class-map match-all system-cpp-cgmp
+ match access-group name system-cpp-cgmp
+!
+policy-map qos-output
+ class nc1
+    bandwidth remaining percent 1
+ class af4
+    priority
+ class af3
+    bandwidth remaining percent 33
+ class af2
+    bandwidth remaining percent 32
+ class af1
+    bandwidth remaining percent 32
+ class be1
+    bandwidth remaining percent 1
+policy-map system-cpp-policy
+ class system-cpp-dot1x
+ class system-cpp-bpdu-range
+ class system-cpp-cdp
+ class system-cpp-garp-range
+ class system-cpp-sstp
+ class system-cpp-cgmp
+ class system-cpp-ospf
+ class system-cpp-igmp
+ class system-cpp-pim
+ class system-cpp-all-systems-on-subnet
+ class system-cpp-all-routers-on-subnet
+ class system-cpp-ripv2
+ class system-cpp-ip-mcast-linklocal
+ class system-cpp-dhcp-cs
+ class system-cpp-dhcp-sc
+ class system-cpp-dhcp-ss
+ class ssh-filter
+    police cir 2000000 bc 20000
+      conform-action transmit 
+      exceed-action drop 
+ class icmp-policer
+    police cir 1000000 bc 10000
+      conform-action transmit 
+      exceed-action drop 
+ class dns-filter
+    police cir 32000 bc 8000
+      conform-action transmit 
+      exceed-action drop 
+ class ntp-filter
+    police cir 32000 bc 8000
+      conform-action transmit 
+      exceed-action drop 
+ class traceroute-policer
+    police cir 32000 bc 8000
+      conform-action transmit 
+      exceed-action drop 
+ class control-plane-filter
+    police cir 32000 bc 1000
+      conform-action drop 
+      exceed-action drop 
+!
+interface Null0
+ no ip unreachables
+!
+interface Loopback0
+ ip address 72.14.237.24 255.255.255.255
+ ipv6 address 2001:4860::7:0:2969/128
+!
+interface FastEthernet1
+ ip vrf forwarding mgmtVrf
+ no ip address
+ speed auto
+ duplex auto
+!
+interface TenGigabitEthernet1/1
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ flowcontrol send on
+ service-policy output qos-output
+!
+interface TenGigabitEthernet1/2
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ flowcontrol send on
+ service-policy output qos-output
+!
+interface TenGigabitEthernet1/3
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ flowcontrol send on
+ service-policy output qos-output
+!
+interface TenGigabitEthernet1/4
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ flowcontrol send on
+ service-policy output qos-output
+!
+interface TenGigabitEthernet1/5
+ description reserved
+ shutdown
+!
+interface TenGigabitEthernet1/6
+ description reserved
+ shutdown
+!
+interface TenGigabitEthernet1/7
+ description BB01.SYD01.GE-4-2-0-0 [T=apBC]
+ no switchport
+ ip address 72.14.237.55 255.255.255.254
+ no ip redirects
+ no ip proxy-arp
+ load-interval 30
+ ipv6 address 2001:4860:0:1::1DD/127
+ service-policy output qos-output
+!
+interface TenGigabitEthernet1/8
+ description BB02.SYD01.GE-4-2-0-0 [T=apBC]
+ no switchport
+ ip address 72.14.237.57 255.255.255.254
+ no ip redirects
+ no ip proxy-arp
+ load-interval 30
+ ipv6 address 2001:4860:0:1::1DF/127
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/1
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/2
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/3
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/4
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/5
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/6
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/7
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet2/8
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface GigabitEthernet2/9
+!
+interface GigabitEthernet2/10
+!
+interface GigabitEthernet2/11
+!
+interface GigabitEthernet2/12
+!
+interface GigabitEthernet2/13
+!
+interface GigabitEthernet2/14
+!
+interface GigabitEthernet2/15
+!
+interface GigabitEthernet2/16
+!
+interface GigabitEthernet2/17
+!
+interface GigabitEthernet2/18
+!
+interface GigabitEthernet2/19
+!
+interface GigabitEthernet2/20
+!
+interface GigabitEthernet2/21
+!
+interface GigabitEthernet2/22
+!
+interface GigabitEthernet2/23
+!
+interface GigabitEthernet2/24
+!
+interface TenGigabitEthernet3/1
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/2
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/3
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/4
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/5
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/6
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/7
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface TenGigabitEthernet3/8
+ switchport access vlan 10
+ switchport mode access
+ load-interval 30
+ service-policy output qos-output
+!
+interface GigabitEthernet3/9
+!
+interface GigabitEthernet3/10
+!
+interface GigabitEthernet3/11
+!
+interface GigabitEthernet3/12
+!
+interface GigabitEthernet3/13
+!
+interface GigabitEthernet3/14
+!
+interface GigabitEthernet3/15
+!
+interface GigabitEthernet3/16
+!
+interface GigabitEthernet3/17
+!
+interface GigabitEthernet3/18
+!
+interface GigabitEthernet3/19
+!
+interface GigabitEthernet3/20
+!
+interface GigabitEthernet3/21
+!
+interface GigabitEthernet3/22
+!
+interface GigabitEthernet3/23
+!
+interface GigabitEthernet3/24
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan10
+ bandwidth 10000000
+ ip address 172.21.7.254 255.255.248.0 secondary
+ ip address 10.252.164.30 255.255.255.224
+ no ip redirects
+ no ip proxy-arp
+ ipv6 address 2404:6800:8000:9::1/64
+!
+router bgp 65516
+ bgp router-id 72.14.237.24
+ bgp log-neighbor-changes
+ neighbor PROD peer-group
+ neighbor PROD remote-as 15169
+ neighbor PROD6 peer-group
+ neighbor PROD6 remote-as 15169
+ neighbor FAILOVERD peer-group
+ neighbor FAILOVERD remote-as 65516
+ neighbor FAILOVERD transport connection-mode passive
+ neighbor FAILOVERD timers 5 15
+ neighbor FAILOVERD6 peer-group
+ neighbor FAILOVERD6 remote-as 65516
+ neighbor FAILOVERD6 transport connection-mode passive
+ neighbor FAILOVERD6 timers 5 15
+ neighbor TOOLS_RECEIVERS peer-group
+ neighbor TOOLS_RECEIVERS remote-as 65516
+ neighbor TOOLS_RECEIVERS update-source Loopback0
+ neighbor 10.247.68.181 peer-group TOOLS_RECEIVERS
+ neighbor 10.247.68.181 description nf01.tpe05
+ neighbor 10.247.69.150 peer-group TOOLS_RECEIVERS
+ neighbor 10.247.69.150 description nf02.bru01
+ neighbor 10.252.164.1 peer-group FAILOVERD
+ neighbor 10.252.164.2 peer-group FAILOVERD
+ neighbor 10.252.164.3 peer-group FAILOVERD
+ neighbor 10.252.164.4 peer-group FAILOVERD
+ neighbor 10.252.164.5 peer-group FAILOVERD
+ neighbor 10.252.164.6 peer-group FAILOVERD
+ neighbor 10.252.164.7 peer-group FAILOVERD
+ neighbor 10.252.164.8 peer-group FAILOVERD
+ neighbor 10.252.164.9 peer-group FAILOVERD
+ neighbor 10.252.164.10 peer-group FAILOVERD
+ neighbor 10.252.164.11 peer-group FAILOVERD
+ neighbor 10.252.164.12 peer-group FAILOVERD
+ neighbor 10.252.164.13 peer-group FAILOVERD
+ neighbor 10.252.164.14 peer-group FAILOVERD
+ neighbor 10.252.164.15 peer-group FAILOVERD
+ neighbor 10.252.164.16 peer-group FAILOVERD
+ neighbor 10.252.164.17 peer-group FAILOVERD
+ neighbor 10.252.164.18 peer-group FAILOVERD
+ neighbor 10.252.164.19 peer-group FAILOVERD
+ neighbor 10.252.164.20 peer-group FAILOVERD
+ neighbor 2001:4860:0:1::1DC peer-group PROD6
+ neighbor 2001:4860:0:1::1DC description BB01.SYD01
+ neighbor 2001:4860:0:1::1DE peer-group PROD6
+ neighbor 2001:4860:0:1::1DE description BB02.SYD01
+ neighbor 2404:6800:8000:9::1 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::2 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::3 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::4 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::5 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::6 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::7 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::8 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::9 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::A peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::B peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::C peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::D peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::E peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::F peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::10 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::11 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::12 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::13 peer-group FAILOVERD6
+ neighbor 2404:6800:8000:9::14 peer-group FAILOVERD6
+ neighbor 72.14.237.54 remote-as 15169
+ neighbor 72.14.237.54 description BB01.SYD01
+ neighbor 72.14.237.56 remote-as 15169
+ neighbor 72.14.237.56 description BB02.SYD01
+ maximum-paths 8
+ maximum-paths ibgp  8
+ !
+ address-family ipv4
+  redistribute connected route-map REDIST-CONNECTED
+  neighbor PROD send-community
+  neighbor PROD soft-reconfiguration inbound
+  neighbor FAILOVERD route-reflector-client
+  neighbor FAILOVERD soft-reconfiguration inbound
+  neighbor FAILOVERD route-map MAGLEV in
+  neighbor FAILOVERD route-map NO-ROUTES out
+  neighbor TOOLS_RECEIVERS route-reflector-client
+  neighbor TOOLS_RECEIVERS route-map NO-ROUTES in
+  neighbor 10.247.68.181 activate
+  neighbor 10.247.69.150 activate
+  neighbor 10.252.164.1 activate
+  neighbor 10.252.164.2 activate
+  neighbor 10.252.164.3 activate
+  neighbor 10.252.164.4 activate
+  neighbor 10.252.164.5 activate
+  neighbor 10.252.164.6 activate
+  neighbor 10.252.164.7 activate
+  neighbor 10.252.164.8 activate
+  neighbor 10.252.164.9 activate
+  neighbor 10.252.164.10 activate
+  neighbor 10.252.164.11 activate
+  neighbor 10.252.164.12 activate
+  neighbor 10.252.164.13 activate
+  neighbor 10.252.164.14 activate
+  neighbor 10.252.164.15 activate
+  neighbor 10.252.164.16 activate
+  neighbor 10.252.164.17 activate
+  neighbor 10.252.164.18 activate
+  neighbor 10.252.164.19 activate
+  neighbor 10.252.164.20 activate
+  no neighbor 2001:4860:0:1::1DC activate
+  no neighbor 2001:4860:0:1::1DE activate
+  no neighbor 2404:6800:8000:9::1 activate
+  no neighbor 2404:6800:8000:9::2 activate
+  no neighbor 2404:6800:8000:9::3 activate
+  no neighbor 2404:6800:8000:9::4 activate
+  no neighbor 2404:6800:8000:9::5 activate
+  no neighbor 2404:6800:8000:9::6 activate
+  no neighbor 2404:6800:8000:9::7 activate
+  no neighbor 2404:6800:8000:9::8 activate
+  no neighbor 2404:6800:8000:9::9 activate
+  no neighbor 2404:6800:8000:9::A activate
+  no neighbor 2404:6800:8000:9::B activate
+  no neighbor 2404:6800:8000:9::C activate
+  no neighbor 2404:6800:8000:9::D activate
+  no neighbor 2404:6800:8000:9::E activate
+  no neighbor 2404:6800:8000:9::F activate
+  no neighbor 2404:6800:8000:9::10 activate
+  no neighbor 2404:6800:8000:9::11 activate
+  no neighbor 2404:6800:8000:9::12 activate
+  no neighbor 2404:6800:8000:9::13 activate
+  no neighbor 2404:6800:8000:9::14 activate
+  neighbor 72.14.237.54 activate
+  neighbor 72.14.237.54 send-community
+  neighbor 72.14.237.54 soft-reconfiguration inbound
+  neighbor 72.14.237.54 route-map BB-A-OUT out
+  neighbor 72.14.237.56 activate
+  neighbor 72.14.237.56 send-community
+  neighbor 72.14.237.56 soft-reconfiguration inbound
+  neighbor 72.14.237.56 route-map BB-B-OUT out
+  maximum-paths 8
+  maximum-paths ibgp  8
+  no auto-summary
+  no synchronization
+  bgp scan-time 5
+  network 10.252.164.0 mask 255.255.255.252
+  network 10.252.164.4 mask 255.255.255.252
+  network 10.252.164.8 mask 255.255.255.252
+  network 10.252.164.12 mask 255.255.255.252
+  network 10.252.164.16 mask 255.255.255.252
+  network 10.252.164.20 mask 255.255.255.252
+ exit-address-family
+ !
+ address-family ipv6
+  neighbor PROD6 send-community
+  neighbor PROD6 soft-reconfiguration inbound
+  neighbor FAILOVERD6 soft-reconfiguration inbound
+  neighbor FAILOVERD6 route-map MAGLEV in
+  neighbor FAILOVERD6 route-map NO-ROUTES out
+  neighbor 2001:4860:0:1::1DC activate
+  neighbor 2001:4860:0:1::1DE activate
+  neighbor 2404:6800:8000:9::1 activate
+  neighbor 2404:6800:8000:9::2 activate
+  neighbor 2404:6800:8000:9::3 activate
+  neighbor 2404:6800:8000:9::4 activate
+  neighbor 2404:6800:8000:9::5 activate
+  neighbor 2404:6800:8000:9::6 activate
+  neighbor 2404:6800:8000:9::7 activate
+  neighbor 2404:6800:8000:9::8 activate
+  neighbor 2404:6800:8000:9::9 activate
+  neighbor 2404:6800:8000:9::A activate
+  neighbor 2404:6800:8000:9::B activate
+  neighbor 2404:6800:8000:9::C activate
+  neighbor 2404:6800:8000:9::D activate
+  neighbor 2404:6800:8000:9::E activate
+  neighbor 2404:6800:8000:9::F activate
+  neighbor 2404:6800:8000:9::10 activate
+  neighbor 2404:6800:8000:9::11 activate
+  neighbor 2404:6800:8000:9::12 activate
+  neighbor 2404:6800:8000:9::13 activate
+  neighbor 2404:6800:8000:9::14 activate
+  bgp scan-time 5
+  redistribute connected route-map CONNECTED
+  no synchronization
+  maximum-paths 8
+  maximum-paths ibgp  8
+ exit-address-family
+!
+ip route 10.252.164.0 255.255.255.252 Vlan10
+ip route 10.252.164.4 255.255.255.252 Vlan10
+ip route 10.252.164.8 255.255.255.252 Vlan10
+ip route 10.252.164.12 255.255.255.252 Vlan10
+ip route 10.252.164.16 255.255.255.252 Vlan10
+ip route 10.252.164.20 255.255.255.252 Vlan10
+ip route 74.125.237.64 255.255.255.255 172.21.1.0 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.1 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.2 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.3 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.4 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.5 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.6 240
+ip route 74.125.237.64 255.255.255.255 172.21.1.7 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.8 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.9 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.10 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.11 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.12 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.13 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.14 240
+ip route 74.125.237.65 255.255.255.255 172.21.1.15 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.16 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.17 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.18 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.19 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.20 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.21 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.22 240
+ip route 74.125.237.66 255.255.255.255 172.21.1.23 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.24 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.25 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.26 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.27 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.28 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.29 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.30 240
+ip route 74.125.237.67 255.255.255.255 172.21.1.31 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.32 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.33 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.34 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.35 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.36 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.37 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.38 240
+ip route 74.125.237.68 255.255.255.255 172.21.1.39 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.40 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.41 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.42 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.43 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.44 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.45 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.46 240
+ip route 74.125.237.69 255.255.255.255 172.21.1.47 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.48 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.49 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.50 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.51 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.52 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.53 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.54 240
+ip route 74.125.237.70 255.255.255.255 172.21.1.55 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.56 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.57 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.58 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.59 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.60 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.61 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.62 240
+ip route 74.125.237.71 255.255.255.255 172.21.1.63 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.64 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.65 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.66 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.67 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.68 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.69 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.70 240
+ip route 74.125.237.72 255.255.255.255 172.21.1.71 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.72 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.73 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.74 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.75 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.76 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.77 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.78 240
+ip route 74.125.237.73 255.255.255.255 172.21.1.79 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.80 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.81 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.82 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.83 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.84 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.85 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.86 240
+ip route 74.125.237.74 255.255.255.255 172.21.1.87 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.88 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.89 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.90 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.91 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.92 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.93 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.94 240
+ip route 74.125.237.75 255.255.255.255 172.21.1.95 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.96 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.97 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.98 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.99 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.100 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.101 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.102 240
+ip route 74.125.237.76 255.255.255.255 172.21.1.103 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.104 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.105 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.106 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.107 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.108 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.109 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.110 240
+ip route 74.125.237.77 255.255.255.255 172.21.1.111 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.112 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.113 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.114 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.115 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.116 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.117 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.118 240
+ip route 74.125.237.78 255.255.255.255 172.21.1.119 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.120 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.121 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.122 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.123 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.124 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.125 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.126 240
+ip route 74.125.237.79 255.255.255.255 172.21.1.127 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.128 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.129 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.130 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.131 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.132 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.133 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.134 240
+ip route 74.125.237.80 255.255.255.255 172.21.1.135 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.136 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.137 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.138 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.139 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.140 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.141 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.142 240
+ip route 74.125.237.81 255.255.255.255 172.21.1.143 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.144 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.145 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.146 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.147 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.148 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.149 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.150 240
+ip route 74.125.237.82 255.255.255.255 172.21.1.151 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.152 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.153 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.154 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.155 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.156 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.157 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.158 240
+ip route 74.125.237.83 255.255.255.255 172.21.1.159 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.160 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.161 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.162 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.163 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.164 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.165 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.166 240
+ip route 74.125.237.84 255.255.255.255 172.21.1.167 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.168 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.169 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.170 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.171 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.172 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.173 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.174 240
+ip route 74.125.237.85 255.255.255.255 172.21.1.175 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.176 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.177 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.178 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.179 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.180 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.181 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.182 240
+ip route 74.125.237.86 255.255.255.255 172.21.1.183 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.184 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.185 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.186 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.187 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.188 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.189 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.190 240
+ip route 74.125.237.87 255.255.255.255 172.21.1.191 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.192 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.193 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.194 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.195 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.196 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.197 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.198 240
+ip route 74.125.237.88 255.255.255.255 172.21.1.199 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.200 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.201 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.202 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.203 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.204 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.205 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.206 240
+ip route 74.125.237.89 255.255.255.255 172.21.1.207 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.208 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.209 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.210 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.211 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.212 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.213 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.214 240
+ip route 74.125.237.90 255.255.255.255 172.21.1.215 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.216 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.217 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.218 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.219 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.220 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.221 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.222 240
+ip route 74.125.237.91 255.255.255.255 172.21.1.223 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.224 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.225 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.226 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.227 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.228 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.229 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.230 240
+ip route 74.125.237.92 255.255.255.255 172.21.1.231 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.232 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.233 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.234 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.235 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.236 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.237 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.238 240
+ip route 74.125.237.93 255.255.255.255 172.21.1.239 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.240 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.241 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.242 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.243 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.244 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.245 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.246 240
+ip route 74.125.237.94 255.255.255.255 172.21.1.247 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.248 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.249 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.250 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.251 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.252 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.253 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.254 240
+ip route 74.125.237.95 255.255.255.255 172.21.1.255 240
+ip route 192.0.2.1 255.255.255.255 Null0
+no ip http server
+no ip http secure-server
+!
+ip bgp-community new-format
+ip community-list standard AS15169.INTERNAL permit 65532:10100
+ip community-list standard ROUTE-INJECTOR permit 65532:10600
+ip community-list standard ANYCAST-VIP permit 65532:10610
+ip community-list standard ANYCAST-AGG permit 65532:10611
+ip community-list standard CONNECTED permit 65532:10200
+ip community-list standard SAT-PRIMARY permit 65532:10100 65534:21030
+ip community-list standard SAT-BACKUP permit 65532:10100 65534:21040
+ip tacacs source-interface Loopback0
+!
+ip access-list extended MANAGEMENT-ACL
+ remark  Id: //depot/ops/network/acl/prod/management-cisco.acl#19 $
+ remark $Date: 2010/08/12 $
+ remark MANAGEMENT-ACL
+ remark ACL for protecting management access to ssh/telnet terminals
+ remark Term should have more descriptive name like
+ remark accept-cisco-ssh-telnet but I put old name to avoid confusion
+ permit tcp 8.8.4.0 0.0.0.255 any range 22 telnet
+ permit tcp 8.8.8.0 0.0.0.255 any range 22 telnet
+ permit tcp 10.0.0.0 0.255.255.255 any range 22 telnet
+ permit tcp 64.233.160.0 0.0.31.255 any range 22 telnet
+ permit tcp 66.102.0.0 0.0.15.255 any range 22 telnet
+ permit tcp 66.249.64.0 0.0.31.255 any range 22 telnet
+ permit tcp 72.14.192.0 0.0.63.255 any range 22 telnet
+ permit tcp 74.125.0.0 0.0.255.255 any range 22 telnet
+ permit tcp 89.207.224.0 0.0.7.255 any range 22 telnet
+ permit tcp 113.197.104.0 0.0.3.255 any range 22 telnet
+ permit tcp 172.16.0.0 0.15.255.255 any range 22 telnet
+ permit tcp 173.194.0.0 0.0.255.255 any range 22 telnet
+ permit tcp 192.168.0.0 0.0.255.255 any range 22 telnet
+ permit tcp 209.85.128.0 0.0.127.255 any range 22 telnet
+ permit tcp 216.239.32.0 0.0.31.255 any range 22 telnet
+ remark deny
+ deny   ip any any
+ip access-list extended bgp-15169-neighbors-filter
+ remark PERMITS normal bgp neighbors in 15169 addressing blocks
+ remark which will classify that traffic for policing
+ remark this traffic will be policed to 5mbps
+ remark  Id: //depot/ops/network/acl/prod/control-plane-policer-cisco.acl#11 $
+ remark $Date: 2010/02/01 $
+ permit tcp 208.117.224.0 0.0.31.255 208.117.224.0 0.0.31.255 eq bgp
+ permit tcp 209.85.128.0 0.0.127.255 209.85.128.0 0.0.127.255 eq bgp
+ permit tcp 216.239.32.0 0.0.31.255 216.239.32.0 0.0.31.255 eq bgp
+ permit tcp 72.14.192.0 0.0.63.255 72.14.192.0 0.0.63.255 eq bgp
+ip access-list extended control-plane-filter
+ remark PERMITS in the acl will classify traffic into the
+ remark control-plane policy-map stanza
+ remark DENYS in the acl will not classify traffic into the
+ remark this traffic will be policed to 0bps
+ remark  Id: //depot/ops/network/acl/prod/control-plane-policer-cisco.acl#11 $
+ remark $Date: 2010/02/01 $
+ deny   ip 10.0.0.0 0.255.255.255 any
+ deny   ip 172.17.0.0 0.0.255.255 any
+ deny   ip 172.18.0.0 0.0.255.255 any
+ deny   ip host 172.20.0.153 any
+ deny   ip host 172.20.0.155 any
+ deny   ip 172.22.0.0 0.0.255.255 any
+ deny   ip 172.23.0.0 0.0.255.255 any
+ deny   ip 172.24.0.0 0.0.255.255 any
+ deny   ip 172.25.0.0 0.0.255.255 any
+ deny   ip 172.26.128.0 0.0.63.255 any
+ deny   ip 172.28.0.0 0.3.255.255 any
+ deny   ip 192.168.0.0 0.0.255.255 any
+ deny   ip 64.233.160.0 0.0.31.255 any
+ deny   ip 66.102.0.0 0.0.15.255 any
+ deny   ip 66.249.64.0 0.0.31.255 any
+ deny   ip 72.14.192.0 0.0.63.255 any
+ deny   ip 208.117.224.0 0.0.31.255 any
+ deny   ip 209.85.128.0 0.0.127.255 any
+ deny   ip 216.239.32.0 0.0.31.255 any
+ deny   ip 74.125.0.0 0.0.255.255 any
+ deny   ip 173.194.0.0 0.0.255.255 any
+ deny   tcp any eq bgp any
+ deny   tcp any any eq bgp
+ deny   icmp any any
+ permit ip any any
+ip access-list extended dns-filter
+ remark PERMITS dns responses for classification
+ remark later policing in the control-plane-policer
+ remark remark  Id: //depot/ops/network/acl/prod/control-plane-policer-cisco.acl#11 $
+ permit udp any eq domain any
+ip access-list extended icmp-policer
+ remark PERMITS icmp traffic to be classified
+ remark for policing action
+ remark this traffic will be policed to 1mbps
+ remark  Id: //depot/ops/network/acl/prod/control-plane-policer-cisco.acl#11 $
+ permit icmp any any
+ip access-list extended ntp-filter
+ remark PERMITS ntp responses for classification
+ remark later policing in the control-plane-policer
+ remark remark  Id: //depot/ops/network/acl/prod/control-plane-policer-cisco.acl#11 $
+ permit udp any any eq ntp
+ permit udp any eq ntp any
+ip access-list extended traceroute-policer
+ remark PERMITS traceroute - udp ports 33434-33534
+ remark for policing action
+ remark this traffic will be policed to 32kbps
+ remark  Id: //depot/ops/network/acl/prod/control-plane-policer-cisco.acl#11 $
+ permit udp any any range 33434 33534
+!
+ip prefix-list BB-A-PREPEND seq 5 permit 10.252.164.0/30
+ip prefix-list BB-A-PREPEND seq 10 permit 10.252.164.4/30
+ip prefix-list BB-A-PREPEND seq 15 permit 10.252.164.8/30
+!
+ip prefix-list BB-B-PREPEND seq 5 permit 10.252.164.12/30
+ip prefix-list BB-B-PREPEND seq 10 permit 10.252.164.16/30
+ip prefix-list BB-B-PREPEND seq 15 permit 10.252.164.20/30
+!
+ip prefix-list NO-REDIST seq 5 permit 172.20.0.0/15 le 32
+!
+ip prefix-list NON-VIP seq 5 permit 0.0.0.0/0 le 31
+logging facility local1
+logging source-interface Loopback0
+logging 10.241.64.92
+logging 10.243.16.92
+access-list 1300 permit 172.23.4.175
+access-list 1300 permit 172.23.4.174
+access-list 1300 permit 172.24.189.45
+access-list 1300 permit 172.24.190.68
+access-list 1300 permit 172.25.131.167
+access-list 1300 permit 172.25.131.173
+access-list 1300 remark IOS translation of //depot/ops/network/acl/snmp.jcl
+access-list 1300 remark  Id: //depot/ops/network/acl/prod/snmp-cisco.acl#8 $
+access-list 1300 remark $Date: 2010/09/23 $
+access-list 1300 deny   10.2.0.0 0.0.255.255
+access-list 1300 deny   10.8.0.0 0.3.255.255
+access-list 1300 deny   10.27.0.0 0.0.255.255
+access-list 1300 deny   10.160.0.0 0.1.255.255
+access-list 1300 deny   10.252.136.0 0.0.1.255
+access-list 1300 deny   10.254.154.0 0.0.1.255
+access-list 1300 permit 10.0.0.0 0.255.255.255
+access-list 1300 permit 172.18.64.0 0.0.63.255
+access-list 1300 permit 172.22.64.0 0.0.63.255
+access-list 1300 permit 172.23.4.0 0.0.1.255
+access-list 1300 permit 172.23.6.0 0.0.1.255
+access-list 1300 permit 172.26.160.0 0.0.15.255
+access-list 1300 permit 172.16.56.128 0.0.0.127
+access-list 1300 permit 172.29.86.128 0.0.0.63
+access-list 1300 permit 172.29.246.0 0.0.1.255
+access-list 1300 deny   any
+no cdp run
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::7 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::6 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::5 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::4 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::3 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::2 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80::1 unicast
+ipv6 route 2404:6800:4006:802::/128 Vlan10 FE80:: unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::F unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::E unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::D unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::C unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::B unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::A unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::9 unicast
+ipv6 route 2404:6800:4006:802::1/128 Vlan10 FE80::8 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::17 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::16 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::15 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::14 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::13 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::12 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::11 unicast
+ipv6 route 2404:6800:4006:802::2/128 Vlan10 FE80::10 unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::1F unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::1E unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::1D unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::1C unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::1B unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::1A unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::19 unicast
+ipv6 route 2404:6800:4006:802::3/128 Vlan10 FE80::18 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::27 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::26 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::25 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::24 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::23 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::22 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::21 unicast
+ipv6 route 2404:6800:4006:802::4/128 Vlan10 FE80::20 unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::2F unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::2E unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::2D unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::2C unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::2B unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::2A unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::29 unicast
+ipv6 route 2404:6800:4006:802::5/128 Vlan10 FE80::28 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::37 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::36 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::35 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::34 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::33 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::32 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::31 unicast
+ipv6 route 2404:6800:4006:802::6/128 Vlan10 FE80::30 unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::3F unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::3E unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::3D unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::3C unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::3B unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::3A unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::39 unicast
+ipv6 route 2404:6800:4006:802::7/128 Vlan10 FE80::38 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::47 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::46 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::45 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::44 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::43 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::42 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::41 unicast
+ipv6 route 2404:6800:4006:802::8/128 Vlan10 FE80::40 unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::4F unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::4E unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::4D unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::4C unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::4B unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::4A unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::49 unicast
+ipv6 route 2404:6800:4006:802::9/128 Vlan10 FE80::48 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::57 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::56 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::55 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::54 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::53 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::52 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::51 unicast
+ipv6 route 2404:6800:4006:802::A/128 Vlan10 FE80::50 unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::5F unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::5E unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::5D unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::5C unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::5B unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::5A unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::59 unicast
+ipv6 route 2404:6800:4006:802::B/128 Vlan10 FE80::58 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::67 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::66 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::65 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::64 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::63 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::62 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::61 unicast
+ipv6 route 2404:6800:4006:802::C/128 Vlan10 FE80::60 unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::6F unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::6E unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::6D unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::6C unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::6B unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::6A unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::69 unicast
+ipv6 route 2404:6800:4006:802::D/128 Vlan10 FE80::68 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::77 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::76 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::75 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::74 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::73 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::72 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::71 unicast
+ipv6 route 2404:6800:4006:802::E/128 Vlan10 FE80::70 unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::7F unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::7E unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::7D unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::7C unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::7B unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::7A unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::79 unicast
+ipv6 route 2404:6800:4006:802::F/128 Vlan10 FE80::78 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::87 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::86 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::85 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::84 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::83 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::82 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::81 unicast
+ipv6 route 2404:6800:4006:802::10/128 Vlan10 FE80::80 unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::8F unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::8E unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::8D unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::8C unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::8B unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::8A unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::89 unicast
+ipv6 route 2404:6800:4006:802::11/128 Vlan10 FE80::88 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::97 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::96 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::95 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::94 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::93 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::92 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::91 unicast
+ipv6 route 2404:6800:4006:802::12/128 Vlan10 FE80::90 unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::9F unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::9E unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::9D unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::9C unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::9B unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::9A unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::99 unicast
+ipv6 route 2404:6800:4006:802::13/128 Vlan10 FE80::98 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A7 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A6 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A5 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A4 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A3 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A2 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A1 unicast
+ipv6 route 2404:6800:4006:802::14/128 Vlan10 FE80::A0 unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::AF unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::AE unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::AD unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::AC unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::AB unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::AA unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::A9 unicast
+ipv6 route 2404:6800:4006:802::15/128 Vlan10 FE80::A8 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B7 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B6 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B5 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B4 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B3 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B2 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B1 unicast
+ipv6 route 2404:6800:4006:802::16/128 Vlan10 FE80::B0 unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::BF unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::BE unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::BD unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::BC unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::BB unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::BA unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::B9 unicast
+ipv6 route 2404:6800:4006:802::17/128 Vlan10 FE80::B8 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C7 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C6 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C5 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C4 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C3 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C2 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C1 unicast
+ipv6 route 2404:6800:4006:802::18/128 Vlan10 FE80::C0 unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::CF unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::CE unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::CD unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::CC unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::CB unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::CA unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::C9 unicast
+ipv6 route 2404:6800:4006:802::19/128 Vlan10 FE80::C8 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D7 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D6 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D5 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D4 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D3 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D2 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D1 unicast
+ipv6 route 2404:6800:4006:802::1A/128 Vlan10 FE80::D0 unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::DF unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::DE unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::DD unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::DC unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::DB unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::DA unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::D9 unicast
+ipv6 route 2404:6800:4006:802::1B/128 Vlan10 FE80::D8 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E7 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E6 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E5 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E4 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E3 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E2 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E1 unicast
+ipv6 route 2404:6800:4006:802::1C/128 Vlan10 FE80::E0 unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::EF unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::EE unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::ED unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::EC unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::EB unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::EA unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::E9 unicast
+ipv6 route 2404:6800:4006:802::1D/128 Vlan10 FE80::E8 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F7 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F6 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F5 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F4 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F3 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F2 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F1 unicast
+ipv6 route 2404:6800:4006:802::1E/128 Vlan10 FE80::F0 unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::FF unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::FE unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::FD unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::FC unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::FB unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::FA unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::F9 unicast
+ipv6 route 2404:6800:4006:802::1F/128 Vlan10 FE80::F8 unicast
+ipv6 route FC00::/128 Null0
+!
+route-map BB-B-OUT permit 10
+ match ip address prefix-list BB-B-PREPEND
+ set origin igp
+ set as-path prepend 65516
+ set community 65532:10200
+!
+route-map BB-B-OUT permit 20
+ match ip address prefix-list BB-A-PREPEND
+ set origin igp
+ set community 65532:10200
+!
+route-map BB-B-OUT permit 999
+!
+route-map BB-A-OUT permit 10
+ match ip address prefix-list BB-A-PREPEND
+ set origin igp
+ set as-path prepend 65516
+ set community 65532:10200
+!
+route-map BB-A-OUT permit 20
+ match ip address prefix-list BB-B-PREPEND
+ set origin igp
+ set community 65532:10200
+!
+route-map BB-A-OUT permit 999
+!
+route-map MAGLEV permit 10
+ match community ANYCAST-VIP
+!
+route-map MAGLEV permit 20
+ match community ROUTE-INJECTOR
+!
+route-map MAGLEV permit 30
+ match ip address prefix-list NON-VIP
+ match community SAT-PRIMARY
+!
+route-map MAGLEV permit 40
+ match ip address prefix-list NON-VIP
+ match community SAT-BACKUP
+!
+route-map MAGLEV permit 50
+ set community no-export
+!
+route-map NO-ROUTES deny 10
+!
+route-map CONNECTED permit 10
+ set metric +100
+ set origin igp
+ set community 65532:10200
+!
+route-map REDIST-CONNECTED deny 10
+ match ip address prefix-list NO-REDIST
+!
+route-map REDIST-CONNECTED permit 20
+ set origin igp
+ set community 65532:10200
+!
+snmp-server community public RO 1300
+snmp-server trap-source Loopback0
+snmp-server host 10.241.64.92 version 2c public 
+snmp-server host 10.243.16.92 version 2c public 
+snmp ifmib ifindex persist
+!tacacs-server host 10.243.32.91 single-connection timeout 5 key 7 <removed>
+!tacacs-server host 10.106.0.91 single-connection timeout 5 key 7 <removed>
+tacacs-server directed-request
+!
+control-plane
+ service-policy input system-cpp-policy
+!
+line con 0
+ exec-timeout 30 0
+ stopbits 1
+line vty 0 4
+ access-class MANAGEMENT-ACL in
+ exec-timeout 30 0
+ transport preferred none
+ transport input ssh
+line vty 5 15
+ access-class MANAGEMENT-ACL in
+ exec-timeout 30 15
+ transport preferred none
+ transport input ssh
+!
+ntp source Loopback0
+ntp update-calendar
+ntp server 10.241.80.16
+ntp server 10.200.0.15
+ntp server 10.241.32.15
+ntp server 10.241.64.15
+ntp server 10.241.96.15
+ntp server 10.241.64.16
+ntp server 10.241.96.16
+end

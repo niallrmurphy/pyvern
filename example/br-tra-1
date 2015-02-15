@@ -1,0 +1,1688 @@
+!
+version 12.2
+service timestamps debug datetime msec localtime show-timezone
+service timestamps log datetime msec localtime show-timezone
+service password-encryption
+service counters max age 10
+!
+hostname dub3-br-tra-r1
+!
+!boot system flash disk0:c6k222-pk9sv-mz.122-17d.SXB8.bin
+!boot system flash sup-bootflash:c6sup22-pk2o3sv-mz.121-22.E2.bin
+logging snmp-authfail
+aaa new-model
+aaa authentication password-prompt LocalPassword:
+aaa authentication username-prompt LocalUsername:
+aaa authentication login default group tacacs+ local
+aaa authentication login admin-vty group tacacs+ local
+aaa authentication login admin-con group tacacs+ local
+aaa authentication enable default group tacacs+ enable
+aaa authorization console
+aaa authorization config-commands
+aaa authorization exec default group tacacs+ local 
+aaa authorization exec noauthor-exec none 
+aaa authorization commands 1 default group tacacs+ local 
+aaa authorization commands 1 noauthor-cmd1 none 
+aaa authorization commands 15 default group tacacs+ local 
+aaa authorization commands 15 noauthor-cmd15 none 
+aaa accounting exec acct-exec stop-only group tacacs+
+aaa accounting commands 1 acct-cmd1 stop-only group tacacs+
+aaa accounting commands 15 acct-cmd15 stop-only group tacacs+
+enable secret 5 $1$.cJ5$ak.rVMd8uNZbVQUqrG0M6/
+!
+username neteng privilege 15 secret 5 $1$N09.$n2n.q0dYi5Ux4CUOHv7od.
+username datatech privilege 15 secret 5 $1$ZcgD$IqcIzT.qJWbCougcdObAN/
+clock timezone PST -8
+clock summer-time PDT recurring
+udld enable
+
+ip subnet-zero
+no ip source-route
+!
+!
+ip tftp source-interface Loopback0
+no ip domain-lookup
+ip domain-name amazon.com
+!
+mpls ldp logging neighbor-changes
+mls aging fast time 4 threshold 128
+mls aging long 64
+mls flow ip destination-source
+mls flow ipx destination
+mls nde sender version 5
+mls verify ip length minimum 
+mls verify ipx length minimum 
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+diagnostic cns publish cisco.cns.device.diag_results
+diagnostic cns subscribe cisco.cns.device.diag_commands
+!
+redundancy
+ mode rpr-plus
+ main-cpu
+  auto-sync running-config
+  auto-sync standard
+!
+vlan internal allocation policy ascending
+!
+!
+interface Loopback0
+ ip address 83.238.81.1 255.255.255.255
+!
+interface Port-channel1
+ description possibly Gi2/1-2,7-8,13 --> dub3-br-cor-r1 Gi2/1-5
+ ip address 83.238.81.16 255.255.255.254
+ no ip proxy-arp
+ ip route-cache flow
+ ip ospf cost 20
+ ip ospf hello-interval 1
+!
+interface Port-channel2
+ no ip address
+ no ip proxy-arp
+ ip route-cache flow
+ ip ospf cost 20
+!
+interface Port-channel11
+ description possibly Gi2/19-20,25-26,31 --> dub3-br-cor-r2 Gi2/1-5
+ ip address 83.238.81.18 255.255.255.254
+ no ip proxy-arp
+ ip route-cache flow
+ ip ospf cost 20
+ ip ospf hello-interval 1
+!
+interface GigabitEthernet1/1
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet1/2
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/1
+ description Po1 --> dub3-br-cor-r1 Gi2/1
+ no ip address
+ ip route-cache flow
+ channel-group 1 mode desirable
+!
+interface GigabitEthernet2/2
+ description Po1 --> dub3-br-cor-r1 Gi2/2
+ no ip address
+ ip route-cache flow
+ channel-group 1 mode desirable
+!
+interface GigabitEthernet2/3
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/4
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/5
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/6
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/7
+ description Po1 --> dub3-br-cor-r1 Gi2/3
+ no ip address
+ ip route-cache flow
+ channel-group 1 mode desirable
+!
+interface GigabitEthernet2/8
+ description Po1 --> dub3-br-cor-r1 Gi2/4
+ no ip address
+ ip route-cache flow
+ channel-group 1 mode desirable
+!
+interface GigabitEthernet2/9
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/10
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/11
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/12
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/13
+ description Po1 --> dub3-br-cor-r1 Gi2/5
+ no ip address
+ ip route-cache flow
+ channel-group 1 mode desirable
+!
+interface GigabitEthernet2/14
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/15
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/16
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/17
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/18
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/19
+ description Po11 --> dub3-br-cor-r2 Gi2/1
+ no ip address
+ ip route-cache flow
+ channel-group 11 mode desirable
+!
+interface GigabitEthernet2/20
+ description Po11 --> dub3-br-cor-r2 Gi2/2
+ no ip address
+ ip route-cache flow
+ channel-group 11 mode desirable
+!
+interface GigabitEthernet2/21
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/22
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/23
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/24
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/25
+ description Po11 --> dub3-br-cor-r2 Gi2/3
+ no ip address
+ ip route-cache flow
+ channel-group 11 mode desirable
+!
+interface GigabitEthernet2/26
+ description Po11 --> dub3-br-cor-r2 Gi2/4
+ no ip address
+ ip route-cache flow
+ channel-group 11 mode desirable
+!
+interface GigabitEthernet2/27
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/28
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/29
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/30
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/31
+ description Po11 --> dub3-br-cor-r2 Gi2/5
+ no ip address
+ ip route-cache flow
+ channel-group 11 mode desirable
+!
+interface GigabitEthernet2/32
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/33
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/34
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/35
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/36
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/37
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/38
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/39
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/40
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/41
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/42
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/43
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/44
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/45
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/46
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/47
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet2/48
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet3/1
+ description Verio-GE-IP-Transit-Circuit Verio a01.asbnva01.us.ra.verio.net
+ ip address 129.250.10.26 255.255.255.252
+ ip access-group 100 in
+ ip access-group 101 out
+ no ip proxy-arp
+ ip route-cache flow
+ no ip mroute-cache
+ load-interval 30
+ speed nonegotiate
+ mls netflow sampling
+ flowcontrol receive desired
+ no cdp enable
+!
+interface GigabitEthernet3/2
+ no ip address
+ no ip proxy-arp
+ ip route-cache flow
+ no ip mroute-cache
+ load-interval 30
+ shutdown
+ clock active
+ speed nonegotiate
+ mls netflow sampling
+ flowcontrol receive desired
+ no cdp enable
+!
+interface GigabitEthernet3/3
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet3/4
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet3/5
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet3/6
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet3/7
+ no ip address
+ ip route-cache flow
+ shutdown
+ mls netflow sampling
+!
+interface GigabitEthernet3/8
+ no ip address
+ ip route-cache flow
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 1998
+ router-id 83.238.81.1
+ log-adjacency-changes
+ redistribute connected metric-type 1 subnets route-map connected->ospf-1998
+ redistribute static metric-type 1 subnets route-map vpn-tunnels
+ network 83.238.81.1 0.0.0.0 area 0.0.0.0
+ network 83.238.81.16 0.0.0.1 area 0.0.0.0
+ network 83.238.81.18 0.0.0.1 area 0.0.0.0
+!
+router bgp 39111
+ no synchronization
+ bgp router-id 83.238.81.1
+ bgp cluster-id 168124417
+ bgp log-neighbor-changes
+ network 83.238.81.0 mask 255.255.240.0
+ neighbor IBGP peer-group
+ neighbor IBGP remote-as 16509
+ neighbor IBGP update-source Loopback0
+ neighbor IBGP next-hop-self
+ neighbor IBGP send-community
+ neighbor 72.21.192.224 peer-group IBGP
+ neighbor 72.21.192.224 description Peakflow SP
+ neighbor 72.21.193.1 peer-group IBGP
+ neighbor 72.21.193.1 description iad1-br-cor-r1
+ neighbor 72.21.193.2 peer-group IBGP
+ neighbor 72.21.193.2 description iad1-br-cor-r2
+ neighbor 72.21.193.3 peer-group IBGP
+ neighbor 72.21.193.3 description iad5-br-cor-r1
+ neighbor 72.21.193.4 peer-group IBGP
+ neighbor 72.21.193.4 description iad5-br-cor-r2
+ neighbor 72.21.197.3 peer-group IBGP
+ neighbor 72.21.197.3 description iad2-br-cor-r1
+ neighbor 72.21.197.4 peer-group IBGP
+ neighbor 72.21.197.4 description iad2-br-cor-r2
+ neighbor 72.21.201.1 peer-group IBGP
+ neighbor 72.21.201.1 description iad3-br-cor-r1
+ neighbor 72.21.201.2 peer-group IBGP
+ neighbor 72.21.201.2 description iad3-br-cor-r2
+ neighbor 129.250.10.25 remote-as 2914
+ neighbor 129.250.10.25 description Verio-GE-Transit
+ neighbor 129.250.10.25 soft-reconfiguration inbound
+ neighbor 129.250.10.25 route-map iad2-verio-in in
+ neighbor 129.250.10.25 route-map iad2-verio-out out
+ neighbor 129.250.10.25 password 7 082C435C5A1B55471918
+ neighbor 129.250.10.25 filter-list 1 out
+ no auto-summary
+!
+ip classless
+ip route 10.0.0.0 255.0.0.0 Null0
+ip route 10.0.0.1 255.255.255.255 Null0
+ip route 24.225.222.73 255.255.255.255 Null0
+ip route 63.94.64.78 255.255.255.255 Null0
+ip route 64.94.110.11 255.255.255.255 Null0
+ip route 64.111.117.18 255.255.255.255 Null0
+ip route 65.164.203.212 255.255.255.255 Null0
+ip route 65.164.206.24 255.255.255.255 Null0
+ip route 66.45.7.170 255.255.255.255 Null0
+ip route 66.93.38.46 255.255.255.255 Null0
+ip route 67.22.112.57 255.255.255.255 Null0 name tt1709057
+ip route 69.34.167.69 255.255.255.255 Null0
+ip route 69.46.26.51 255.255.255.255 Null0
+ip route 69.46.26.52 255.255.255.252 Null0
+ip route 69.46.26.56 255.255.255.248 Null0
+ip route 69.46.26.64 255.255.255.252 Null0
+ip route 69.46.29.152 255.255.255.248 Null0
+ip route 69.46.29.160 255.255.255.248 Null0
+ip route 69.64.36.110 255.255.255.255 Null0
+ip route 69.73.151.91 255.255.255.255 Null0
+ip route 72.9.232.146 255.255.255.255 Null0
+ip route 72.21.192.0 255.255.224.0 Null0
+ip route 82.103.128.248 255.255.255.255 Null0
+ip route 82.103.129.97 255.255.255.255 Null0
+ip route 82.196.209.69 255.255.255.255 Null0
+ip route 130.245.216.209 255.255.255.255 Null0
+ip route 172.16.0.0 255.240.0.0 Null0
+ip route 192.168.0.0 255.255.0.0 Null0
+ip route 206.51.238.64 255.255.255.224 Null0
+ip route 206.51.238.95 255.255.255.255 Null0
+ip route 206.51.238.96 255.255.255.255 Null0
+ip route 206.51.238.97 255.255.255.255 Null0
+ip route 207.44.230.16 255.255.255.255 Null0
+ip route 207.171.160.0 255.255.240.0 Null0
+ip route 207.171.166.101 255.255.255.255 Null0
+ip route 207.171.166.203 255.255.255.255 Null0
+ip route 207.171.166.205 255.255.255.255 Null0
+ip route 207.171.166.208 255.255.255.255 Null0
+ip route 207.171.166.209 255.255.255.255 Null0
+ip route 207.171.166.212 255.255.255.255 Null0
+ip route 207.171.166.213 255.255.255.255 Null0
+ip route 207.171.166.250 255.255.255.255 Null0
+ip route 207.171.177.39 255.255.255.255 GigabitEthernet3/1 129.250.10.25
+ip route 208.53.170.13 255.255.255.255 Null0
+ip route 216.52.244.141 255.255.255.255 Null0
+ip route 217.19.24.205 255.255.255.255 Null0
+ip route 217.174.252.12 255.255.255.255 Null0 name tt1709057
+ip route 221.224.8.96 255.255.255.240 Null0
+ip flow-export source Loopback0
+ip flow-export version 5 origin-as
+ip flow-export destination 207.171.172.19 9996
+ip flow-export destination 72.21.192.224 5400
+no ip http server
+no ip http secure-server
+ip tacacs source-interface Loopback0
+ip community-list expanded honor-metrics permit ^[1-9][1-9][1-9][2-4]$
+ip community-list expanded blackhole-route permit ^[1-9][1-9]9[1-9]$
+ip as-path access-list 1 permit ^$
+ip as-path access-list 2 permit .*
+ip as-path access-list 40 deny .*
+ip as-path access-list 60 permit 19262
+ip as-path access-list 60 permit 15169
+ip as-path access-list 60 permit 2856
+ip as-path access-list 60 permit 1668$
+ip as-path access-list 60 deny .*
+!
+!
+ip prefix-list iad2-space-in description permit all dc address space at any mask length
+ip prefix-list iad2-space-in seq 10 permit 207.171.160.0/20 le 32
+ip prefix-list iad2-space-in seq 20 permit 72.21.192.0/19 le 32
+ip prefix-list iad2-space-in seq 30 permit 216.182.224.0/20 le 32
+ip prefix-list iad2-space-in seq 100000 deny 0.0.0.0/0 le 32
+!
+ip prefix-list iad2-space-out description permit all dc address up to a /24 mask length
+ip prefix-list iad2-space-out seq 10 permit 207.171.160.0/20 le 24
+ip prefix-list iad2-space-out seq 20 permit 72.21.192.0/19 le 24
+ip prefix-list iad2-space-out seq 30 permit 216.182.224.0/20 le 24
+ip prefix-list iad2-space-out seq 100000 deny 0.0.0.0/0 le 32
+!
+ip prefix-list iad2-verio-exception description set and honor exception tier metrics locally
+ip prefix-list iad2-verio-exception seq 5 deny 0.0.0.0/0 le 32
+!
+ip prefix-list iad2-verio-high description set and honor exception tier metrics between DC's
+ip prefix-list iad2-verio-high seq 100000 deny 0.0.0.0/0 le 32
+!
+ip prefix-list peer-interconnects seq 5 permit 129.250.10.24/30
+!
+ip prefix-list std-deny description rfc 1918 and Martian Space
+ip prefix-list std-deny seq 10 permit 0.0.0.0/0
+ip prefix-list std-deny seq 20 permit 127.0.0.0/8 le 32
+ip prefix-list std-deny seq 30 permit 10.0.0.0/8 le 32
+ip prefix-list std-deny seq 40 permit 172.16.0.0/12 le 32
+ip prefix-list std-deny seq 50 permit 192.168.0.0/16 le 32
+ip prefix-list std-deny seq 60 permit 224.0.0.0/3 le 32
+ip prefix-list std-deny seq 70 permit 192.0.2.0/24 le 32
+ip prefix-list std-deny seq 80 permit 128.0.0.0/16 le 32
+!
+ip access-list standard vty-allow
+ remark iad2-co-edg-fw global
+ permit 207.171.172.32 0.0.0.31
+ remark iad2-br-edg-fw global
+ permit 207.171.172.0 0.0.0.31
+ remark nov-*-px global
+ permit 207.171.167.0 0.0.0.255
+ remark IAD2 Border Space
+ permit 10.5.104.0 0.0.0.255
+ remark IAD1 Border Space
+ permit 10.6.104.0 0.0.0.255
+ remark temorary-IAD loopback space
+ permit 10.5.96.0 0.0.0.255
+ remark IAD Loopback Space
+ permit 10.4.0.0 0.0.0.255
+ remark ** IAD Loopback space **
+ permit 72.21.193.0 0.0.0.15
+ permit 72.21.197.0 0.0.0.15
+ permit 72.21.201.0 0.0.0.15
+ remark ** IAD Core-to-core space **
+ permit 72.21.193.16 0.0.0.7
+ permit 72.21.197.16 0.0.0.7
+ permit 72.21.201.16 0.0.0.7
+ remark ** IAD Border core ring space **
+ permit 72.21.193.24 0.0.0.7
+ permit 72.21.197.24 0.0.0.7
+ permit 72.21.201.24 0.0.0.7
+ remark ** IAD Core to transit space **
+ permit 72.21.193.32 0.0.0.15
+ permit 72.21.197.32 0.0.0.15
+ permit 72.21.201.32 0.0.0.15
+ deny   any
+!
+ip access-list extended VERIO-IN
+ip access-list extended test
+!
+logging event link-status default
+logging facility local5
+logging source-interface Loopback0
+logging 207.171.172.7
+logging 207.171.172.8
+access-list 1 permit 204.177.154.0 0.0.1.255
+access-list 1 permit 208.33.216.0 0.0.3.255
+access-list 1 permit 208.202.218.0 0.0.1.255
+access-list 1 permit 208.216.180.0 0.0.3.255
+access-list 1 permit 208.226.120.0 0.0.3.255
+access-list 1 permit 209.191.164.0 0.0.1.255
+access-list 1 permit 208.192.208.0 0.0.3.255
+access-list 1 deny   any
+access-list 2 permit 207.171.160.0 0.0.31.255
+access-list 2 permit 10.5.96.0 0.0.0.255
+access-list 2 permit 10.5.104.0 0.0.0.255
+access-list 2 permit 72.21.192.0 0.0.31.255
+access-list 2 deny   any
+access-list 3 permit 207.171.160.0 0.0.15.255
+access-list 3 permit 72.21.192.0 0.0.31.255
+access-list 3 deny   any
+access-list 4 permit 207.171.177.16 0.0.0.15
+access-list 4 permit 207.171.177.32 0.0.0.15
+access-list 100 deny   ip host 0.0.0.0 any
+access-list 100 deny   ip 10.0.0.0 0.255.255.255 any
+access-list 100 deny   ip 127.0.0.0 0.255.255.255 any
+access-list 100 deny   ip host 141.146.165.103 host 207.171.166.23
+access-list 100 deny   ip host 141.146.165.103 host 207.171.163.19
+access-list 100 deny   ip 141.146.165.104 0.0.0.1 host 207.171.166.23
+access-list 100 deny   ip 141.146.165.104 0.0.0.1 host 207.171.163.19
+access-list 100 deny   ip 169.254.0.0 0.0.255.255 any
+access-list 100 deny   ip 172.16.0.0 0.15.255.255 any
+access-list 100 deny   ip 192.168.0.0 0.0.255.255 any
+access-list 100 deny   ip 207.171.160.0 0.0.15.255 any
+access-list 100 deny   ip 224.0.0.0 15.255.255.255 any
+access-list 100 deny   ip 72.21.192.0 0.0.31.255 any
+access-list 100 deny   ip host 255.255.255.255 any
+access-list 100 deny   tcp any eq 0 any
+access-list 100 deny   tcp any any eq 0
+access-list 100 deny   tcp any any eq echo
+access-list 100 deny   tcp any any eq finger
+access-list 100 deny   tcp any any eq pop2
+access-list 100 deny   tcp any any eq pop3
+access-list 100 deny   tcp any any eq sunrpc
+access-list 100 deny   udp any any eq netbios-ns
+access-list 100 deny   tcp any any eq 137
+access-list 100 deny   tcp any any eq 143
+access-list 100 deny   tcp any any eq 1003
+access-list 100 deny   tcp any any eq 2049
+access-list 100 deny   tcp any any eq 6000
+access-list 100 deny   tcp any any eq 8081
+access-list 100 deny   udp any any eq snmp
+access-list 100 deny   udp any any eq snmptrap
+access-list 100 permit tcp any any established
+access-list 100 permit ip any 216.182.224.0 0.0.15.255
+access-list 100 deny   ip any 207.171.166.4 0.0.0.3
+access-list 100 deny   ip 12.45.174.32 0.0.0.15 host 207.171.163.31
+access-list 100 deny   ip 12.45.174.32 0.0.0.15 host 207.171.166.49
+access-list 100 deny   ip 64.217.39.160 0.0.0.7 host 207.171.163.31
+access-list 100 deny   ip 64.217.39.160 0.0.0.7 host 207.171.166.49
+access-list 100 deny   ip 65.67.78.24 0.0.0.7 host 207.171.163.31
+access-list 100 deny   ip 65.67.78.24 0.0.0.7 host 207.171.166.49
+access-list 100 deny   ip 65.68.166.56 0.0.0.7 host 207.171.163.31
+access-list 100 deny   ip 65.68.166.56 0.0.0.7 host 207.171.166.49
+access-list 100 deny   ip 67.66.234.48 0.0.0.7 host 207.171.163.31
+access-list 100 deny   ip 67.66.234.48 0.0.0.7 host 207.171.166.49
+access-list 100 deny   ip 68.92.241.112 0.0.0.7 host 207.171.163.31
+access-list 100 deny   ip 68.92.241.112 0.0.0.7 host 207.171.166.49
+access-list 100 deny   ip host 69.169.73.33 host 72.21.206.1
+access-list 100 deny   ip host 69.169.73.33 host 207.171.163.31
+access-list 100 deny   ip host 69.169.73.33 host 207.171.175.30
+access-list 100 deny   ip host 69.169.73.33 host 207.171.166.49
+access-list 100 deny   ip any 207.171.175.0 0.0.0.7
+access-list 100 remark Explict Deny access to Netscaler Managment IPs
+access-list 100 deny   ip any host 207.171.163.6
+access-list 100 deny   ip any host 207.171.163.7
+access-list 100 deny   ip any host 207.171.163.68
+access-list 100 deny   ip any host 207.171.166.8
+access-list 100 deny   ip any host 207.171.166.9
+access-list 100 deny   ip any host 207.171.166.71
+access-list 100 deny   ip any host 207.171.166.72
+access-list 100 deny   ip any host 207.171.166.135
+access-list 100 deny   ip any host 207.171.166.136
+access-list 100 deny   ip any host 207.171.168.9
+access-list 100 deny   ip any host 207.171.170.4
+access-list 100 deny   ip any host 207.171.170.5
+access-list 100 deny   ip any host 207.171.175.7
+access-list 100 deny   ip any host 207.171.175.8
+access-list 100 deny   ip any host 207.171.166.205
+access-list 100 remark END NETSCALER DENIES
+access-list 100 permit tcp any host 72.21.200.189 eq 443
+access-list 100 permit tcp any host 72.21.200.190 eq 443
+access-list 100 permit tcp any host 207.171.166.47 eq 49200
+access-list 100 permit tcp any host 207.171.166.47 eq 49201
+access-list 100 permit tcp any host 207.171.166.47 eq 49202
+access-list 100 permit tcp any host 207.171.166.47 eq 49203
+access-list 100 permit tcp any host 207.171.178.178 eq 9030
+access-list 100 permit tcp any host 207.171.178.178 eq 9031
+access-list 100 permit tcp any host 207.171.164.54 eq smtp
+access-list 100 permit tcp any host 207.171.164.54 eq ident
+access-list 100 permit tcp any host 207.171.160.56 eq smtp
+access-list 100 permit tcp any host 207.171.160.56 eq ident
+access-list 100 permit tcp any 207.171.160.40 0.0.0.1 eq ident
+access-list 100 permit tcp any host 207.171.160.42 eq ident
+access-list 100 permit tcp any host 207.171.160.44 eq ident
+access-list 100 permit tcp any 207.171.161.22 0.0.0.1 eq ident
+access-list 100 permit tcp any 207.171.161.24 0.0.0.1 eq ident
+access-list 100 permit tcp any host 207.171.164.35 eq ident
+access-list 100 permit tcp any host 207.171.164.40 eq ident
+access-list 100 permit tcp any host 207.171.164.45 eq ident
+access-list 100 permit tcp any host 207.171.164.46 eq ident
+access-list 100 permit tcp any host 207.171.165.133 eq ident
+access-list 100 permit tcp any 207.171.165.134 0.0.0.1 eq ident
+access-list 100 permit tcp any host 207.171.165.136 eq ident
+access-list 100 permit tcp 170.35.0.0 0.0.255.255 host 207.171.166.47 eq 49999
+access-list 100 permit tcp 170.35.0.0 0.0.255.255 host 207.171.166.47 eq 50000
+access-list 100 deny   ip any host 207.171.166.247
+access-list 100 permit tcp any 207.171.175.0 0.0.0.127 eq www
+access-list 100 permit tcp any 207.171.175.0 0.0.0.127 eq 443
+access-list 100 permit tcp any 207.171.166.0 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.166.0 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.166.64 0.0.0.3
+access-list 100 permit tcp any 207.171.166.64 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.166.64 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.166.132 0.0.0.3
+access-list 100 permit tcp any 207.171.166.128 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.166.128 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.166.196 0.0.0.3
+access-list 100 deny   ip any host 207.171.166.201
+access-list 100 deny   ip any host 207.171.166.202
+access-list 100 deny   ip any host 207.171.166.203
+access-list 100 deny   ip any host 207.171.166.204
+access-list 100 deny   ip any host 207.171.166.206
+access-list 100 deny   ip any host 207.171.166.211
+access-list 100 permit tcp any host 207.171.166.47 eq 4080
+access-list 100 permit tcp any host 207.171.166.47 eq 49199
+access-list 100 permit tcp any 207.171.166.192 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.166.192 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.163.4 0.0.0.3
+access-list 100 permit tcp any 207.171.163.0 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.163.0 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.163.64 0.0.0.3
+access-list 100 permit tcp host 161.225.1.12 host 207.171.163.98 eq www
+access-list 100 permit tcp host 161.225.1.12 host 207.171.163.98 eq 443
+access-list 100 permit tcp host 161.225.129.10 host 207.171.163.98 eq www
+access-list 100 permit tcp host 161.225.129.10 host 207.171.163.98 eq 443
+access-list 100 deny   ip any host 207.171.163.98
+access-list 100 permit tcp any 207.171.163.64 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.163.64 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.163.132 0.0.0.3
+access-list 100 permit tcp any 207.171.163.128 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.163.128 0.0.0.63 eq 443
+access-list 100 deny   ip any 207.171.163.196 0.0.0.3
+access-list 100 permit tcp any 72.21.206.0 0.0.1.255 eq www
+access-list 100 permit tcp any 72.21.206.0 0.0.1.255 eq 443
+access-list 100 permit tcp any 207.171.163.192 0.0.0.63 eq www
+access-list 100 permit tcp any 207.171.163.192 0.0.0.63 eq 443
+access-list 100 permit tcp any 207.171.168.16 0.0.0.15 eq www
+access-list 100 permit tcp any 207.171.168.16 0.0.0.15 eq 443
+access-list 100 permit tcp any 207.171.168.32 0.0.0.15 eq www
+access-list 100 permit tcp any 207.171.168.32 0.0.0.15 eq 443
+access-list 100 permit tcp any 207.171.168.64 0.0.0.15 eq www
+access-list 100 permit tcp any 207.171.168.64 0.0.0.15 eq 443
+access-list 100 permit tcp any 207.171.168.80 0.0.0.15 eq www
+access-list 100 permit tcp any 207.171.168.80 0.0.0.15 eq 443
+access-list 100 permit tcp any 207.171.169.16 0.0.0.7 eq www
+access-list 100 permit tcp any 207.171.169.16 0.0.0.7 eq 443
+access-list 100 permit tcp any 207.171.170.16 0.0.0.7 eq www
+access-list 100 permit tcp any 207.171.170.16 0.0.0.7 eq 443
+access-list 100 permit tcp any 72.21.206.0 0.0.0.63 eq www
+access-list 100 permit tcp any 72.21.206.0 0.0.0.63 eq 443
+access-list 100 permit tcp host 64.12.176.227 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp host 64.12.176.227 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 64.12.148.128 0.0.0.63 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 64.12.148.128 0.0.0.63 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 64.12.149.212 0.0.0.3 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 64.12.149.212 0.0.0.3 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 64.12.150.144 0.0.0.15 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 64.12.150.144 0.0.0.15 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 64.236.136.0 0.0.3.255 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 64.236.136.0 0.0.3.255 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp host 152.163.209.33 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp host 152.163.209.33 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp host 205.188.132.193 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp host 205.188.132.193 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp host 205.188.132.194 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp host 205.188.132.194 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 205.188.132.200 0.0.0.7 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 205.188.132.200 0.0.0.7 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 205.188.138.128 0.0.0.7 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 205.188.138.128 0.0.0.7 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp host 205.188.138.136 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp host 205.188.138.136 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp host 205.188.138.139 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp host 205.188.138.139 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp 207.200.67.192 0.0.0.31 207.171.162.16 0.0.0.7 eq www
+access-list 100 permit tcp 207.200.67.192 0.0.0.31 207.171.162.16 0.0.0.7 eq 443
+access-list 100 permit tcp host 64.12.176.227 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp host 64.12.176.227 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 64.12.148.128 0.0.0.63 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 64.12.148.128 0.0.0.63 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 64.12.149.212 0.0.0.3 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 64.12.149.212 0.0.0.3 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 64.12.150.144 0.0.0.15 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 64.12.150.144 0.0.0.15 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 64.236.136.0 0.0.3.255 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 64.236.136.0 0.0.3.255 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp host 152.163.209.33 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp host 152.163.209.33 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp host 205.188.132.193 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp host 205.188.132.193 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp host 205.188.132.194 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp host 205.188.132.194 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 205.188.132.200 0.0.0.7 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 205.188.132.200 0.0.0.7 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 205.188.138.128 0.0.0.7 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 205.188.138.128 0.0.0.7 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp host 205.188.138.136 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp host 205.188.138.136 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp host 205.188.138.139 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp host 205.188.138.139 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp host 164.164.86.75 host 207.171.178.180 eq www
+access-list 100 permit tcp host 164.164.86.75 host 207.171.178.180 eq 443
+access-list 100 permit tcp host 203.200.198.9 host 207.171.178.180 eq www
+access-list 100 permit tcp host 203.200.198.9 host 207.171.178.180 eq 443
+access-list 100 permit tcp host 161.255.1.12 host 207.171.178.184 eq www
+access-list 100 permit tcp host 161.255.1.12 host 207.171.178.184 eq 443
+access-list 100 permit tcp host 161.255.129.10 host 207.171.178.184 eq www
+access-list 100 permit tcp host 161.255.129.10 host 207.171.178.184 eq 443
+access-list 100 permit tcp host 10.121.64.65 host 207.171.178.184 eq www
+access-list 100 permit tcp host 10.121.64.65 host 207.171.178.184 eq 443
+access-list 100 permit tcp 207.200.67.192 0.0.0.31 207.171.163.104 0.0.0.1 eq www
+access-list 100 permit tcp 207.200.67.192 0.0.0.31 207.171.163.104 0.0.0.1 eq 443
+access-list 100 permit tcp 64.236.136.0 0.0.3.255 host 207.171.168.32 eq www
+access-list 100 permit tcp 64.236.136.0 0.0.3.255 host 207.171.168.32 eq 443
+access-list 100 permit tcp 207.200.67.192 0.0.0.31 host 207.171.168.32 eq www
+access-list 100 permit tcp 207.200.67.192 0.0.0.31 host 207.171.168.32 eq 443
+access-list 100 permit tcp 148.87.1.224 0.0.0.31 host 207.171.171.140 eq 443
+access-list 100 permit tcp 148.87.1.224 0.0.0.31 host 207.171.171.140 eq 22
+access-list 100 permit tcp 12.37.10.0 0.0.0.255 host 207.171.175.43 eq www
+access-list 100 permit tcp 12.37.10.0 0.0.0.255 host 207.171.175.43 eq 443
+access-list 100 permit udp any eq domain host 207.171.167.53
+access-list 100 permit udp any eq domain host 207.171.172.23
+access-list 100 permit udp any eq domain host 207.171.167.25 eq domain
+access-list 100 permit udp any eq domain host 207.171.167.25 gt 1023
+access-list 100 permit udp any eq domain host 207.171.167.127
+access-list 100 permit udp any eq domain host 207.171.167.128
+access-list 100 permit udp any eq domain host 207.171.167.190
+access-list 100 permit udp any eq domain host 207.171.167.191
+access-list 100 permit udp any eq domain host 207.171.167.192
+access-list 100 permit udp any eq domain host 207.171.167.193
+access-list 100 permit udp any eq domain host 207.171.167.194
+access-list 100 permit udp any eq domain host 207.171.167.195
+access-list 100 permit udp any eq domain host 207.171.172.49
+access-list 100 permit udp any eq domain host 207.171.172.57
+access-list 100 permit udp any eq domain host 207.171.160.45
+access-list 100 permit udp any eq domain host 207.171.172.48
+access-list 100 permit udp any eq domain host 207.171.172.13
+access-list 100 permit udp any eq domain host 207.171.172.14
+access-list 100 permit udp any eq domain host 207.171.172.16
+access-list 100 permit udp any eq domain host 207.171.172.17
+access-list 100 permit udp any eq domain host 207.171.172.18
+access-list 100 permit udp any any gt 33434
+access-list 100 deny   udp any any eq 1003
+access-list 100 deny   udp any any eq 2049
+access-list 100 deny   udp any any eq 6000
+access-list 100 permit udp any eq domain host 207.171.171.132 eq domain
+access-list 100 permit udp any eq domain host 207.171.171.132 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.241 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.242 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.231 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.232 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.233 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.234 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.36 gt 1023
+access-list 100 permit udp any eq domain host 207.171.168.37 gt 1023
+access-list 100 permit udp any eq domain host 207.171.167.21 gt 1023
+access-list 100 permit udp any eq domain host 207.171.167.22 gt 1023
+access-list 100 permit udp any eq domain host 207.171.167.101 gt 1023
+access-list 100 permit udp any eq domain host 207.171.165.39 eq domain
+access-list 100 permit udp any eq domain host 207.171.165.39 gt 1023
+access-list 100 permit tcp any host 207.171.165.39 eq domain
+access-list 100 permit udp any host 207.171.165.39 eq domain
+access-list 100 permit udp any eq domain host 207.171.165.40 eq domain
+access-list 100 permit udp any eq domain host 207.171.165.40 gt 1023
+access-list 100 permit tcp any host 207.171.165.40 eq domain
+access-list 100 permit udp any host 207.171.165.40 eq domain
+access-list 100 permit tcp any host 207.171.171.132 eq domain
+access-list 100 permit udp any host 207.171.171.132 eq domain
+access-list 100 permit tcp any host 207.171.171.133 eq ftp
+access-list 100 permit tcp any host 207.171.171.133 eq ftp-data
+access-list 100 permit tcp any host 207.171.165.22 eq ftp
+access-list 100 permit tcp any host 207.171.165.22 eq ftp-data
+access-list 100 permit tcp any host 207.171.165.22 gt 32000
+access-list 100 permit tcp any host 207.171.171.133 eq www
+access-list 100 permit tcp any host 207.171.171.133 gt 32000
+access-list 100 permit udp any host 207.171.167.7 eq domain
+access-list 100 permit tcp any host 207.171.167.7 eq domain
+access-list 100 permit udp any host 207.171.169.7 eq domain
+access-list 100 permit tcp any host 207.171.169.7 eq domain
+access-list 100 permit tcp any host 207.171.160.52 eq smtp
+access-list 100 permit tcp any host 207.171.160.53 eq smtp
+access-list 100 permit tcp any host 207.171.160.54 eq smtp
+access-list 100 permit tcp any host 207.171.160.55 eq smtp
+access-list 100 permit tcp any host 207.171.160.57 eq smtp
+access-list 100 permit esp host 158.43.32.70 host 207.171.171.4
+access-list 100 permit udp host 158.43.32.70 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 67.17.213.226 host 207.171.171.52
+access-list 100 permit udp host 67.17.213.226 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 64.214.131.170 host 207.171.171.4
+access-list 100 permit esp host 12.17.165.33 host 72.21.196.131
+access-list 100 permit udp host 12.17.165.33 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 64.214.128.70 host 207.171.171.52
+access-list 100 permit udp host 64.214.128.70 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 63.130.82.138 host 207.171.171.55
+access-list 100 permit udp host 63.130.82.138 host 207.171.171.55 eq isakmp
+access-list 100 permit esp host 63.130.82.130 host 207.171.171.55
+access-list 100 permit udp host 63.130.82.130 host 207.171.171.55 eq isakmp
+access-list 100 permit esp host 63.83.9.130 host 207.171.171.52
+access-list 100 permit udp host 63.83.9.130 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.119.29.186 host 207.171.171.52
+access-list 100 permit udp host 12.119.29.186 host 207.171.171.52 eq isakmp
+access-list 100 permit udp host 64.214.131.170 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.119.29.186 host 207.171.171.4
+access-list 100 permit udp host 12.119.29.186 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 61.246.208.178 host 207.171.171.52
+access-list 100 permit udp host 61.246.208.178 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 59.160.160.41 host 207.171.171.4
+access-list 100 permit udp host 59.160.160.41 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 80.169.163.50 host 207.171.171.52
+access-list 100 permit udp host 80.169.163.50 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 207.138.92.214 host 207.171.171.4
+access-list 100 permit udp host 207.138.92.214 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 211.157.4.98 host 72.21.192.131
+access-list 100 permit udp host 211.157.4.98 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 212.187.194.34 host 207.171.171.52
+access-list 100 permit udp host 212.187.194.34 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 212.187.194.34 host 72.21.192.131
+access-list 100 permit udp host 212.187.194.34 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 210.210.93.227 host 207.171.171.4
+access-list 100 permit esp host 210.210.93.227 host 207.171.171.52
+access-list 100 permit udp host 210.210.93.227 host 207.171.171.4 eq isakmp
+access-list 100 permit udp host 210.210.93.227 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 221.184.29.162 host 207.171.171.52
+access-list 100 permit udp host 221.184.29.162 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 206.159.98.0 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 206.159.98.0 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 63.79.109.96 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 63.79.109.96 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.204.202.192 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.204.202.192 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.222.194.176 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.222.194.176 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.201.206.32 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.201.206.32 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.201.206.0 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.201.206.0 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.206.219.192 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.206.219.192 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.206.219.192 0.0.0.15 host 207.171.171.17
+access-list 100 permit udp 65.206.219.192 0.0.0.15 host 207.171.171.17 eq isakmp
+access-list 100 permit esp 65.206.219.192 0.0.0.15 host 207.171.171.36
+access-list 100 permit udp 65.206.219.192 0.0.0.15 host 207.171.171.36 eq isakmp
+access-list 100 permit esp 65.201.233.144 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.201.233.144 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 65.199.110.240 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 65.199.110.240 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 206.159.98.0 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 206.159.98.0 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 63.79.109.96 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 63.79.109.96 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.204.202.192 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.204.202.192 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.222.194.176 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.222.194.176 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.222.194.176 0.0.0.15 host 207.171.171.17
+access-list 100 permit udp 65.222.194.176 0.0.0.15 host 207.171.171.17 eq isakmp
+access-list 100 permit esp 65.222.194.176 0.0.0.15 host 207.171.171.36
+access-list 100 permit udp 65.222.194.176 0.0.0.15 host 207.171.171.36 eq isakmp
+access-list 100 permit esp 65.201.206.32 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.201.206.32 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.201.206.32 0.0.0.15 host 207.171.171.20
+access-list 100 permit udp 65.201.206.32 0.0.0.15 host 207.171.171.20 eq isakmp
+access-list 100 permit esp 65.201.206.32 0.0.0.15 host 207.171.171.36
+access-list 100 permit udp 65.201.206.32 0.0.0.15 host 207.171.171.36 eq isakmp
+access-list 100 permit esp host 61.204.225.82 host 207.171.171.4
+access-list 100 permit udp host 61.204.225.82 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 61.120.197.32 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 61.120.197.32 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 61.120.197.32 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 61.120.197.32 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.201.206.0 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.201.206.0 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.206.219.192 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.206.219.192 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.201.233.144 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.201.233.144 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 65.199.110.240 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 65.199.110.240 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 210.128.36.154 host 207.171.172.68
+access-list 100 permit udp host 210.128.36.154 host 207.171.172.68 eq isakmp
+access-list 100 permit esp host 207.171.177.23 host 207.171.172.70
+access-list 100 permit udp host 207.171.177.23 host 207.171.172.70 eq isakmp
+access-list 100 permit esp host 207.171.177.39 host 207.171.172.102
+access-list 100 permit udp host 207.171.177.39 host 207.171.172.102 eq isakmp
+access-list 100 permit esp host 207.171.171.20 host 207.171.172.68
+access-list 100 permit udp host 207.171.171.20 host 207.171.172.68 eq isakmp
+access-list 100 permit esp host 207.171.171.20 host 207.171.172.69
+access-list 100 permit udp host 207.171.171.20 host 207.171.172.69 eq isakmp
+access-list 100 permit esp host 207.171.171.36 host 207.171.172.100
+access-list 100 permit udp host 207.171.171.36 host 207.171.172.100 eq isakmp
+access-list 100 permit esp host 207.171.171.36 host 207.171.172.101
+access-list 100 permit udp host 207.171.171.36 host 207.171.172.101 eq isakmp
+access-list 100 permit esp host 207.171.172.68 host 207.171.171.20
+access-list 100 permit udp host 207.171.172.68 host 207.171.171.20 eq isakmp
+access-list 100 permit esp host 207.171.172.69 host 207.171.171.20
+access-list 100 permit udp host 207.171.172.69 host 207.171.171.20 eq isakmp
+access-list 100 permit esp host 207.171.172.100 host 207.171.171.36
+access-list 100 permit udp host 207.171.172.100 host 207.171.171.36 eq isakmp
+access-list 100 permit esp host 207.171.172.101 host 207.171.171.36
+access-list 100 permit udp host 207.171.172.101 host 207.171.171.36 eq isakmp
+access-list 100 permit esp host 207.171.177.20 host 207.171.172.68
+access-list 100 permit udp host 207.171.177.20 host 207.171.172.68 eq isakmp
+access-list 100 permit esp host 207.171.177.20 host 207.171.172.69
+access-list 100 permit udp host 207.171.177.20 host 207.171.172.69 eq isakmp
+access-list 100 permit esp host 207.171.177.22 host 207.171.171.22
+access-list 100 permit udp host 207.171.177.22 host 207.171.171.22 eq isakmp
+access-list 100 permit esp host 207.171.177.36 host 207.171.172.100
+access-list 100 permit udp host 207.171.177.36 host 207.171.172.100 eq isakmp
+access-list 100 permit esp host 207.171.177.36 host 207.171.172.101
+access-list 100 permit udp host 207.171.177.36 host 207.171.172.101 eq isakmp
+access-list 100 permit udp host 207.171.177.38 host 207.171.171.38 eq isakmp
+access-list 100 permit esp host 207.171.177.38 host 207.171.171.38
+access-list 100 permit udp host 207.171.177.23 host 207.171.171.23 eq isakmp
+access-list 100 permit esp host 207.171.177.23 host 207.171.171.23
+access-list 100 permit udp host 207.171.177.39 host 207.171.171.39 eq isakmp
+access-list 100 permit esp host 207.171.177.39 host 207.171.171.39
+access-list 100 permit esp host 207.171.181.34 host 207.171.172.70
+access-list 100 permit udp host 207.171.181.34 host 207.171.172.70 eq isakmp
+access-list 100 permit esp host 207.171.181.38 host 207.171.172.102
+access-list 100 permit udp host 207.171.181.38 host 207.171.172.102 eq isakmp
+access-list 100 permit esp host 206.165.150.69 host 207.171.171.4
+access-list 100 permit udp host 206.165.150.69 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 206.165.150.69 host 207.171.171.52
+access-list 100 permit udp host 206.165.150.69 host 207.171.171.52 eq isakmp
+access-list 100 permit udp host 213.70.169.242 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 213.70.169.242 host 207.171.171.52
+access-list 100 permit esp host 207.171.177.20 host 207.171.171.20
+access-list 100 permit udp host 207.171.177.20 host 207.171.171.20 eq isakmp
+access-list 100 permit esp host 207.171.177.36 host 207.171.171.36
+access-list 100 permit udp host 207.171.177.36 host 207.171.171.36 eq isakmp
+access-list 100 permit esp host 207.171.177.21 host 207.171.171.21
+access-list 100 permit udp host 207.171.177.21 host 207.171.171.21 eq isakmp
+access-list 100 permit esp host 207.171.177.37 host 207.171.171.37
+access-list 100 permit udp host 207.171.177.37 host 207.171.171.37 eq isakmp
+access-list 100 permit esp host 195.243.74.2 host 207.171.171.52
+access-list 100 permit udp host 195.243.74.2 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 212.157.150.18 host 207.171.171.52
+access-list 100 permit udp host 212.157.150.18 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 63.165.233.130 host 207.171.171.52
+access-list 100 permit udp host 63.165.233.130 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 61.120.158.66 host 207.171.171.4
+access-list 100 permit udp host 61.120.158.66 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 61.120.158.82 host 207.171.171.52
+access-list 100 permit udp host 61.120.158.82 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 61.120.158.82 host 207.171.171.4
+access-list 100 permit udp host 61.120.158.82 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 213.198.80.2 host 207.171.171.4
+access-list 100 permit udp host 213.198.80.2 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 161.225.129.24 host 207.171.171.5
+access-list 100 permit udp host 161.225.129.24 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 81.25.198.34 host 207.171.171.4
+access-list 100 permit udp host 81.25.198.34 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 213.137.184.82 host 207.171.171.4
+access-list 100 permit udp host 213.137.184.82 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 213.137.179.250 host 207.171.171.52
+access-list 100 permit udp host 213.137.179.250 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 193.132.149.232 host 207.171.171.4
+access-list 100 permit udp host 193.132.149.232 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 213.137.179.146 host 207.171.171.4
+access-list 100 permit udp host 213.137.179.146 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 212.162.200.234 host 207.171.171.52
+access-list 100 permit udp host 212.162.200.234 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 212.162.211.115 host 207.171.171.4
+access-list 100 permit udp host 212.162.211.115 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 213.70.104.34 host 207.171.171.52
+access-list 100 permit udp host 213.70.104.34 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.109.105.98 host 207.171.171.4
+access-list 100 permit udp host 12.109.105.98 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.253.107.74 host 207.171.171.52
+access-list 100 permit udp host 208.253.107.74 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.40.178.226 host 207.171.171.4
+access-list 100 permit udp host 12.40.178.226 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 65.204.201.58 host 207.171.171.52
+access-list 100 permit udp host 65.204.201.58 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.111.209.194 host 207.171.171.4
+access-list 100 permit udp host 12.111.209.194 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.251.198.202 host 207.171.171.52
+access-list 100 permit udp host 208.251.198.202 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.43.23.66 host 207.171.171.4
+access-list 100 permit udp host 12.43.23.66 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.254.173.74 host 207.171.171.52
+access-list 100 permit udp host 208.254.173.74 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.149.186.34 host 207.171.171.4
+access-list 100 permit esp host 12.18.117.105 host 207.171.171.4
+access-list 100 permit udp host 12.18.117.105 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.18.117.105 host 207.171.171.52
+access-list 100 permit udp host 12.149.186.34 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 65.204.201.50 host 207.171.171.52
+access-list 100 permit udp host 65.204.201.50 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.146.22.130 host 207.171.171.4
+access-list 100 permit udp host 12.146.22.130 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.251.200.66 host 207.171.171.52
+access-list 100 permit udp host 208.251.200.66 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.158.48.18 host 207.171.171.4
+access-list 100 permit udp host 12.158.48.18 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.253.107.66 host 207.171.171.52
+access-list 100 permit udp host 12.18.117.105 host 207.171.171.52 eq isakmp
+access-list 100 permit udp host 208.253.107.66 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 213.70.113.98 host 207.171.171.4
+access-list 100 permit udp host 213.70.113.98 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 202.232.202.210 host 207.171.171.52
+access-list 100 permit udp host 202.232.202.210 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 210.81.212.34 host 207.171.171.52
+access-list 100 permit udp host 210.81.212.34 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 194.203.206.81 host 207.171.171.52
+access-list 100 permit udp host 194.203.206.81 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 208.6.27.109 host 207.171.171.4
+access-list 100 permit udp host 208.6.27.109 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.6.27.110 host 207.171.171.4
+access-list 100 permit udp host 208.6.27.110 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.32.32.130 host 207.171.171.4
+access-list 100 permit udp host 12.32.32.130 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.32.32.242 host 207.171.171.4
+access-list 100 permit udp host 12.32.32.242 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 209.247.255.254 host 207.171.171.4
+access-list 100 permit udp host 209.247.255.254 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 67.107.182.254 host 207.171.171.4
+access-list 100 permit udp host 67.107.182.254 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 195.127.63.18 host 207.171.171.52
+access-list 100 permit udp host 195.127.63.18 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 195.127.107.98 host 207.171.171.4
+access-list 100 permit udp host 195.127.107.98 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 210.225.86.210 host 207.171.171.4
+access-list 100 permit udp host 210.225.86.210 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 210.225.229.42 host 207.171.171.4
+access-list 100 permit udp host 210.225.229.42 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 146.82.8.93 host 207.171.171.4
+access-list 100 permit udp host 146.82.8.93 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 146.82.8.93 host 207.171.171.52
+access-list 100 permit udp host 146.82.8.93 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 203.200.69.162 host 207.171.171.5
+access-list 100 permit udp host 203.200.69.162 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 203.200.107.226 host 207.171.171.55
+access-list 100 permit udp host 203.200.107.226 host 207.171.171.55 eq isakmp
+access-list 100 permit esp host 62.253.234.49 host 207.171.171.55
+access-list 100 permit udp host 62.253.234.49 host 207.171.171.55 eq isakmp
+access-list 100 permit esp host 193.128.154.1 host 207.171.171.5
+access-list 100 permit udp host 193.128.154.1 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 206.70.250.232 host 207.171.171.5
+access-list 100 permit udp host 206.70.250.232 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 161.225.129.23 host 207.171.171.5
+access-list 100 permit udp host 161.225.129.23 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 209.219.119.20 host 207.171.171.5
+access-list 100 permit udp host 209.219.119.20 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 207.127.128.120 host 207.171.171.5
+access-list 100 permit udp host 207.127.128.120 host 207.171.171.5 eq isakmp
+access-list 100 permit udp host 207.127.128.120 host 207.171.171.5 eq non500-isakmp
+access-list 100 permit esp host 207.127.128.121 host 207.171.171.55
+access-list 100 permit udp host 207.127.128.121 host 207.171.171.55 eq isakmp
+access-list 100 permit esp host 207.127.128.121 host 207.171.161.70
+access-list 100 permit udp host 207.127.128.121 host 207.171.161.70 eq isakmp
+access-list 100 permit udp host 207.127.128.121 host 207.171.161.70 eq non500-isakmp
+access-list 100 permit esp host 148.87.5.45 host 207.171.171.140
+access-list 100 permit udp host 148.87.5.45 host 207.171.171.140 eq isakmp
+access-list 100 permit esp host 141.146.183.6 host 207.171.171.140
+access-list 100 permit udp host 141.146.183.6 host 207.171.171.140 eq isakmp
+access-list 100 permit esp host 206.132.65.18 host 207.171.171.4
+access-list 100 permit udp host 206.132.65.18 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 207.171.177.53 host 207.171.171.55
+access-list 100 permit udp host 207.171.177.53 host 207.171.171.55 eq isakmp
+access-list 100 permit esp host 66.170.114.136 host 207.171.171.5
+access-list 100 permit udp host 66.170.114.136 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 65.164.163.89 host 207.171.172.100
+access-list 100 permit udp host 65.164.163.89 host 207.171.172.100 eq isakmp
+access-list 100 permit esp host 65.164.163.89 host 207.171.172.68
+access-list 100 permit udp host 65.164.163.89 host 207.171.172.68 eq isakmp
+access-list 100 permit esp host 206.132.220.2 host 207.171.171.4
+access-list 100 permit udp host 206.132.220.2 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 206.132.220.2 host 207.171.171.52
+access-list 100 permit udp host 206.132.220.2 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.158.56.146 host 207.171.171.4
+access-list 100 permit udp host 12.158.56.146 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.183.163.34 host 207.171.171.4
+access-list 100 permit udp host 12.183.163.34 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.183.163.38 host 207.171.171.52
+access-list 100 permit udp host 12.183.163.38 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 207.218.85.58 host 207.171.171.52
+access-list 100 permit udp host 207.218.85.58 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 209.130.202.234 host 207.171.171.52
+access-list 100 permit udp host 209.130.202.234 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 207.218.139.162 host 207.171.171.4
+access-list 100 permit udp host 207.218.139.162 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 61.246.187.50 host 207.171.171.5
+access-list 100 permit udp host 61.246.187.50 host 207.171.171.5 eq isakmp
+access-list 100 permit esp 12.33.10.128 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 12.33.10.128 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 12.33.10.128 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 12.33.10.128 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 12.37.84.48 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 12.37.84.48 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 12.37.84.48 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 12.37.84.48 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 12.169.234.112 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 12.169.234.112 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 12.169.234.112 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 12.169.234.112 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 12.178.209.0 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 12.178.209.0 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 12.178.209.0 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 12.178.209.0 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 207.136.182.162 host 207.171.171.4
+access-list 100 permit udp host 207.136.182.162 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 202.54.220.130 host 207.171.171.5
+access-list 100 permit udp host 202.54.220.130 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 80.169.163.52 host 207.171.171.52
+access-list 100 permit udp host 80.169.163.52 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 212.157.172.74 host 207.171.171.52
+access-list 100 permit udp host 212.157.172.74 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 207.218.72.26 host 207.171.171.4
+access-list 100 permit udp host 207.218.72.26 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 62.189.33.194 host 207.171.171.4
+access-list 100 permit udp host 62.189.33.194 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 62.189.33.194 host 207.171.171.52
+access-list 100 permit udp host 62.189.33.194 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 217.111.48.48 0.0.0.7 host 207.171.171.4
+access-list 100 permit udp 217.111.48.48 0.0.0.7 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 217.111.48.48 0.0.0.7 host 207.171.171.52
+access-list 100 permit udp 217.111.48.48 0.0.0.7 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 217.111.48.48 0.0.0.7 host 207.171.171.20
+access-list 100 permit udp 217.111.48.48 0.0.0.7 host 207.171.171.20 eq isakmp
+access-list 100 permit esp 217.111.48.48 0.0.0.7 host 207.171.171.36
+access-list 100 permit udp 217.111.48.48 0.0.0.7 host 207.171.171.36 eq isakmp
+access-list 100 permit esp 62.189.39.240 0.0.0.15 host 207.171.171.4
+access-list 100 permit udp 62.189.39.240 0.0.0.15 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 62.189.39.240 0.0.0.15 host 207.171.171.52
+access-list 100 permit udp 62.189.39.240 0.0.0.15 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 207.171.177.16 0.0.0.15 72.21.192.128 0.0.0.31
+access-list 100 permit udp 207.171.177.16 0.0.0.15 72.21.192.128 0.0.0.31 eq isakmp
+access-list 100 permit esp 207.171.177.16 0.0.0.15 72.21.196.128 0.0.0.31
+access-list 100 permit udp 207.171.177.16 0.0.0.15 72.21.196.128 0.0.0.31 eq isakmp
+access-list 100 permit esp 207.171.177.32 0.0.0.15 72.21.192.128 0.0.0.31
+access-list 100 permit udp 207.171.177.32 0.0.0.15 72.21.192.128 0.0.0.31 eq isakmp
+access-list 100 permit esp 207.171.177.32 0.0.0.15 72.21.196.128 0.0.0.31
+access-list 100 permit udp 207.171.177.32 0.0.0.15 72.21.196.128 0.0.0.31 eq isakmp
+access-list 100 permit esp host 221.184.29.162 host 72.21.196.131
+access-list 100 permit udp host 221.184.29.162 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 12.40.178.226 host 207.171.171.20
+access-list 100 permit udp host 12.40.178.226 host 207.171.171.20 eq isakmp
+access-list 100 permit esp host 213.123.35.82 host 207.171.171.5
+access-list 100 permit udp host 213.123.35.82 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 195.127.137.170 host 207.171.171.4
+access-list 100 permit udp host 195.127.137.170 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 210.210.93.227 host 207.171.165.2
+access-list 100 permit udp host 210.210.93.227 host 207.171.165.2 eq isakmp
+access-list 100 permit esp host 210.210.93.227 host 207.171.165.6
+access-list 100 permit udp host 210.210.93.227 host 207.171.165.6 eq isakmp
+access-list 100 permit esp host 59.145.147.147 host 207.171.165.2
+access-list 100 permit udp host 59.145.147.147 host 207.171.165.2 eq isakmp
+access-list 100 permit esp host 59.145.147.147 host 207.171.171.52
+access-list 100 permit udp host 59.145.147.147 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 59.145.147.147 host 207.171.165.6
+access-list 100 permit udp host 59.145.147.147 host 207.171.165.6 eq isakmp
+access-list 100 permit esp host 12.118.58.150 host 207.171.171.52
+access-list 100 permit udp host 12.118.58.150 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.118.58.150 host 207.171.171.4
+access-list 100 permit udp host 12.118.58.150 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.126.127.14 host 207.171.171.52
+access-list 100 permit udp host 12.126.127.14 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.126.127.14 host 207.171.171.4
+access-list 100 permit udp host 12.126.127.14 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 65.195.229.94 host 207.171.171.52
+access-list 100 permit udp host 65.195.229.94 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 65.195.229.94 host 207.171.171.4
+access-list 100 permit udp host 65.195.229.94 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 24.83.72.172 host 207.171.171.5
+access-list 100 permit udp host 24.83.72.172 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 32.115.99.18 host 207.171.171.5
+access-list 100 permit udp host 32.115.99.18 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 32.115.99.22 host 207.171.171.5
+access-list 100 permit udp host 32.115.99.22 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 24.83.72.173 host 207.171.171.5
+access-list 100 permit udp host 24.83.72.173 host 207.171.171.5 eq isakmp
+access-list 100 permit esp host 65.201.233.154 host 207.171.171.52
+access-list 100 permit udp host 65.201.233.154 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 157.130.100.150 host 207.171.171.4
+access-list 100 permit udp host 157.130.100.150 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 157.130.100.150 host 207.171.171.52
+access-list 100 permit udp host 157.130.100.150 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 157.130.47.34 host 207.171.171.4
+access-list 100 permit udp host 157.130.47.34 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 157.130.47.34 host 207.171.171.52
+access-list 100 permit udp host 157.130.47.34 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 63.122.162.182 host 207.171.171.4
+access-list 100 permit udp host 63.122.162.182 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.126.205.74 host 207.171.171.4
+access-list 100 permit udp host 12.126.205.74 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 65.208.15.206 host 207.171.171.4
+access-list 100 permit udp host 65.208.15.206 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.222.11.186 host 207.171.171.4
+access-list 100 permit udp host 208.222.11.186 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.127.180.82 host 207.171.171.52
+access-list 100 permit udp host 12.127.180.82 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.127.180.86 host 207.171.171.52
+access-list 100 permit udp host 12.127.180.86 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 64.111.132.39 host 207.171.171.4
+access-list 100 permit udp host 64.111.132.39 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 62.189.156.98 host 207.171.171.4
+access-list 100 permit udp host 62.189.156.98 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 61.204.225.234 host 207.171.171.4
+access-list 100 permit udp host 61.204.225.234 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 61.120.197.2 host 207.171.171.52
+access-list 100 permit udp host 61.120.197.2 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 12.127.127.110 host 207.171.171.52
+access-list 100 permit udp host 12.127.127.110 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 149.230.242.234 host 207.171.171.52
+access-list 100 permit udp host 149.230.242.234 host 207.171.171.52 eq isakmp
+access-list 100 permit esp host 158.43.49.178 host 207.171.171.4
+access-list 100 permit udp host 158.43.49.178 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 212.208.254.98 host 207.171.171.4
+access-list 100 permit udp host 212.208.254.98 host 207.171.171.4 eq isakmp
+access-list 100 permit esp 12.163.82.144 0.0.0.7 host 207.171.171.52
+access-list 100 permit udp 12.163.82.144 0.0.0.7 host 207.171.171.52 eq isakmp
+access-list 100 permit esp 12.163.82.144 0.0.0.7 host 207.171.171.4
+access-list 100 permit udp 12.163.82.144 0.0.0.7 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 63.65.184.142 host 207.171.171.4
+access-list 100 permit udp host 63.65.184.142 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 12.104.32.81 host 72.21.192.131
+access-list 100 permit udp host 12.104.32.81 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 80.169.175.226 host 207.171.171.4
+access-list 100 permit udp host 80.169.175.226 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 62.189.156.98 72.21.192.0 0.0.15.255
+access-list 100 permit udp host 62.189.156.98 72.21.192.0 0.0.15.255 eq isakmp
+access-list 100 permit esp host 63.174.37.113 host 72.21.192.131
+access-list 100 permit udp host 63.174.37.113 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 61.117.245.58 host 72.21.192.131
+access-list 100 permit udp host 61.117.245.58 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 216.196.241.126 host 207.171.171.4
+access-list 100 permit udp host 216.196.241.126 host 207.171.171.4 eq isakmp
+access-list 100 permit esp host 208.49.22.169 72.21.192.0 0.0.15.255
+access-list 100 permit udp host 208.49.22.169 72.21.192.0 0.0.15.255 eq isakmp
+access-list 100 permit esp host 80.169.175.226 72.21.192.0 0.0.15.255
+access-list 100 permit udp host 80.169.175.226 72.21.192.0 0.0.15.255 eq isakmp
+access-list 100 permit esp host 206.159.98.3 72.21.192.0 0.0.15.255
+access-list 100 permit udp host 206.159.98.3 72.21.192.0 0.0.15.255 eq isakmp
+access-list 100 permit esp host 207.138.92.214 72.21.192.0 0.0.15.255
+access-list 100 permit udp host 207.138.92.214 72.21.192.0 0.0.15.255 eq isakmp
+access-list 100 permit esp host 63.79.109.98 72.21.192.0 0.0.15.255
+access-list 100 permit udp host 63.79.109.98 72.21.192.0 0.0.15.255 eq isakmp
+access-list 100 permit esp 65.206.219.192 0.0.0.15 72.21.192.0 0.0.31.255
+access-list 100 permit udp 65.206.219.192 0.0.0.15 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 12.146.22.128 0.0.0.15 72.21.192.0 0.0.31.255
+access-list 100 permit udp 12.146.22.128 0.0.0.15 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 12.111.209.192 0.0.0.15 72.21.192.0 0.0.31.255
+access-list 100 permit udp 12.111.209.192 0.0.0.15 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 65.222.194.176 0.0.0.15 72.21.192.0 0.0.31.255
+access-list 100 permit udp 65.222.194.176 0.0.0.15 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 12.104.32.80 0.0.0.7 72.21.192.0 0.0.31.255
+access-list 100 permit udp 12.104.32.80 0.0.0.7 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 63.174.37.112 0.0.0.7 72.21.192.0 0.0.31.255
+access-list 100 permit udp 63.174.37.112 0.0.0.7 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp host 208.192.180.206 host 72.21.192.131
+access-list 100 permit udp host 208.192.180.206 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 12.182.55.73 host 72.21.192.131
+access-list 100 permit udp host 12.182.55.73 host 72.21.192.131 eq isakmp
+access-list 100 permit esp 63.165.233.128 0.0.0.7 72.21.192.0 0.0.31.255
+access-list 100 permit udp 63.165.233.128 0.0.0.7 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 65.164.163.88 0.0.0.7 72.21.192.0 0.0.31.255
+access-list 100 permit udp 65.164.163.88 0.0.0.7 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 207.138.92.212 0.0.0.3 72.21.192.0 0.0.31.255
+access-list 100 permit udp 207.138.92.212 0.0.0.3 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 212.187.194.32 0.0.0.15 72.21.192.0 0.0.31.255
+access-list 100 permit udp 212.187.194.32 0.0.0.15 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 12.169.234.112 0.0.0.15 72.21.192.0 0.0.31.255
+access-list 100 permit udp 12.169.234.112 0.0.0.15 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 63.65.46.92 0.0.0.3 72.21.192.0 0.0.31.255
+access-list 100 permit udp 63.65.46.92 0.0.0.3 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 63.65.72.28 0.0.0.3 72.21.192.0 0.0.31.255
+access-list 100 permit udp 63.65.72.28 0.0.0.3 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 81.181.91.8 0.0.0.7 72.21.192.0 0.0.31.255
+access-list 100 permit udp 81.181.91.8 0.0.0.7 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp 82.77.23.96 0.0.0.31 72.21.192.0 0.0.31.255
+access-list 100 permit udp 82.77.23.96 0.0.0.31 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit esp host 63.65.46.18 host 72.21.196.131
+access-list 100 permit udp host 63.65.46.18 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 157.130.118.70 host 72.21.192.131
+access-list 100 permit udp host 157.130.118.70 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 12.31.142.81 host 72.21.196.131
+access-list 100 permit udp host 12.31.142.81 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 63.65.184.142 host 72.21.192.131
+access-list 100 permit udp host 63.65.184.142 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 12.163.82.145 host 72.21.196.131
+access-list 100 permit udp host 12.163.82.145 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 12.22.4.25 host 72.21.192.131
+access-list 100 permit udp host 12.22.4.25 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 12.104.55.9 host 72.21.196.131
+access-list 100 permit udp host 12.104.55.9 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 65.201.206.35 host 72.21.192.131
+access-list 100 permit udp host 65.201.206.35 host 72.21.192.131 eq isakmp
+access-list 100 permit esp host 12.33.210.121 host 72.21.196.131
+access-list 100 permit udp host 12.33.210.121 host 72.21.196.131 eq isakmp
+access-list 100 permit esp host 64.209.88.98 72.21.192.0 0.0.31.255
+access-list 100 permit udp host 64.209.88.98 72.21.192.0 0.0.31.255 eq isakmp
+access-list 100 permit tcp any eq ftp-data 207.171.167.0 0.0.0.255 gt 1023
+access-list 100 permit tcp any eq ftp-data 207.171.172.0 0.0.0.31 gt 1023
+access-list 100 permit udp host 164.67.62.194 host 207.171.172.13 eq ntp
+access-list 100 permit udp host 164.67.62.194 host 207.171.172.14 eq ntp
+access-list 100 permit udp host 204.123.2.5 host 207.171.172.13 eq ntp
+access-list 100 permit udp host 204.123.2.5 host 207.171.172.14 eq ntp
+access-list 100 permit udp host 204.123.2.72 host 207.171.172.13 eq ntp
+access-list 100 permit udp host 204.123.2.72 host 207.171.172.14 eq ntp
+access-list 100 permit udp host 140.142.16.34 host 207.171.172.13 eq ntp
+access-list 100 permit udp host 140.142.16.34 host 207.171.172.14 eq ntp
+access-list 100 permit udp host 140.142.2.8 host 207.171.172.13 eq ntp
+access-list 100 permit udp host 140.142.2.8 host 207.171.172.14 eq ntp
+access-list 100 permit udp host 164.67.62.194 host 207.171.164.215 eq ntp
+access-list 100 permit udp host 204.123.2.5 host 207.171.164.215 eq ntp
+access-list 100 permit udp host 204.123.2.72 host 207.171.164.215 eq ntp
+access-list 100 permit udp host 140.142.16.34 host 207.171.164.215 eq ntp
+access-list 100 permit udp host 140.142.2.8 host 207.171.164.215 eq ntp
+access-list 100 permit udp host 164.67.62.194 host 207.171.167.127 eq ntp
+access-list 100 permit udp host 204.123.2.5 host 207.171.167.127 eq ntp
+access-list 100 permit udp host 204.123.2.72 host 207.171.167.127 eq ntp
+access-list 100 permit udp host 140.142.16.34 host 207.171.167.127 eq ntp
+access-list 100 permit udp host 140.142.2.8 host 207.171.167.127 eq ntp
+access-list 100 permit udp host 164.67.62.194 host 207.171.167.128 eq ntp
+access-list 100 permit udp host 204.123.2.5 host 207.171.167.128 eq ntp
+access-list 100 permit udp host 204.123.2.72 host 207.171.167.128 eq ntp
+access-list 100 permit udp host 140.142.16.34 host 207.171.167.128 eq ntp
+access-list 100 permit udp host 140.142.2.8 host 207.171.167.128 eq ntp
+access-list 100 permit udp host 164.67.62.194 host 207.171.167.129 eq ntp
+access-list 100 permit udp host 204.123.2.5 host 207.171.167.129 eq ntp
+access-list 100 permit udp host 204.123.2.72 host 207.171.167.129 eq ntp
+access-list 100 permit udp host 140.142.16.34 host 207.171.167.129 eq ntp
+access-list 100 permit udp host 140.142.2.8 host 207.171.167.129 eq ntp
+access-list 100 permit udp any host 207.171.165.39 eq ntp
+access-list 100 permit udp any host 207.171.165.40 eq ntp
+access-list 100 permit icmp 207.171.176.0 0.0.15.255 any echo
+access-list 100 permit icmp 207.171.176.0 0.0.15.255 any echo-reply
+access-list 100 permit icmp any 207.171.167.0 0.0.0.255 echo-reply
+access-list 100 permit icmp any 207.171.172.0 0.0.0.31 echo-reply
+access-list 100 permit icmp any host 4.79.228.22 echo-reply
+access-list 100 permit icmp 148.87.1.224 0.0.0.31 host 207.171.171.140 echo
+access-list 100 permit icmp 148.87.1.224 0.0.0.31 host 207.171.171.140 echo-reply
+access-list 100 permit icmp 148.87.46.192 0.0.0.31 host 207.171.171.140 echo
+access-list 100 permit icmp 148.87.46.192 0.0.0.31 host 207.171.171.140 echo-reply
+access-list 100 permit icmp any host 207.171.171.22 echo
+access-list 100 permit icmp any host 207.171.171.22 echo-reply
+access-list 100 permit icmp any host 207.171.171.38 echo
+access-list 100 permit icmp any host 207.171.171.38 echo-reply
+access-list 100 permit icmp any host 207.171.171.23 echo
+access-list 100 permit icmp any host 207.171.171.23 echo-reply
+access-list 100 permit icmp any host 207.171.171.39 echo
+access-list 100 permit icmp any host 207.171.171.39 echo-reply
+access-list 100 permit icmp any host 207.171.171.20 echo
+access-list 100 permit icmp any host 207.171.171.20 echo-reply
+access-list 100 permit icmp any host 207.171.171.36 echo
+access-list 100 permit icmp any host 207.171.171.36 echo-reply
+access-list 100 permit icmp any host 207.171.171.21 echo
+access-list 100 permit icmp any host 207.171.171.21 echo-reply
+access-list 100 permit icmp any host 207.171.171.37 echo
+access-list 100 permit icmp any host 207.171.171.37 echo-reply
+access-list 100 permit icmp any host 207.171.171.4 echo
+access-list 100 permit icmp any host 207.171.171.4 echo-reply
+access-list 100 permit icmp any host 207.171.171.52 echo
+access-list 100 permit icmp any host 207.171.171.52 echo-reply
+access-list 100 permit icmp any host 207.171.172.102 echo
+access-list 100 permit icmp any host 207.171.172.102 echo-reply
+access-list 100 permit icmp any host 12.124.235.30 echo
+access-list 100 permit icmp any host 12.124.235.30 echo-reply
+access-list 100 permit icmp any host 65.207.92.90 echo
+access-list 100 permit icmp any host 65.207.92.90 echo-reply
+access-list 100 permit icmp any host 129.250.10.26 echo
+access-list 100 permit icmp any host 129.250.10.26 echo-reply
+access-list 100 permit icmp any host 144.223.246.18 echo
+access-list 100 permit icmp any host 144.223.246.18 echo-reply
+access-list 100 permit icmp any any time-exceeded
+access-list 100 permit icmp any any unreachable
+access-list 100 deny   icmp any any echo
+access-list 100 deny   icmp any any echo-reply
+access-list 100 deny   icmp any any source-quench
+access-list 100 deny   icmp any any redirect
+access-list 100 permit tcp any host 72.21.206.1 eq www
+access-list 100 permit tcp any host 72.21.206.1 eq 443
+access-list 100 deny   ip any any
+access-list 101 deny   udp any any eq tftp
+access-list 101 deny   tcp any any eq 135
+access-list 101 deny   udp any any eq 135
+access-list 101 deny   tcp any any eq 136
+access-list 101 deny   udp any any eq 136
+access-list 101 deny   tcp any any eq 137
+access-list 101 deny   udp any any eq netbios-ns
+access-list 101 deny   tcp any any eq 138
+access-list 101 deny   udp any any eq netbios-dgm
+access-list 101 deny   tcp any any eq 139
+access-list 101 deny   udp any any eq netbios-ss
+access-list 101 deny   tcp any any eq 445
+access-list 101 deny   udp any any eq 1433
+access-list 101 deny   udp any any eq 1434
+access-list 101 permit ip 72.21.192.0 0.0.31.255 any
+access-list 101 permit ip 207.171.160.0 0.0.15.255 any
+access-list 101 permit ip 216.182.224.0 0.0.15.255 any
+access-list 101 permit ip host 12.124.235.30 any
+access-list 101 permit ip host 129.250.10.26 any
+access-list 101 deny   ip any any
+!
+route-map iad2-verio-maint-out permit 10
+ description prepend ASN for maintenance
+ match ip address prefix-list iad2-space-out
+ set as-path prepend 16509 16509 16509 16509
+!
+route-map iad2-verio-maint-out deny 20
+!
+route-map vpn-tunnels permit 10
+ match ip address 4
+!
+route-map iad2-verio-in deny 10
+ description deny martian space
+ match ip address prefix-list std-deny
+!
+route-map iad2-verio-in deny 20
+ description deny datacenter space
+ match ip address prefix-list iad2-space-in
+!
+route-map iad2-verio-in permit 30
+ description set exception local pref
+ match ip address prefix-list iad2-verio-exception
+ set local-preference 3000
+!
+route-map iad2-verio-in permit 40
+ description set inter-dc exception
+ match as-path 40
+ set local-preference 3000
+!
+route-map iad2-verio-in permit 50
+ description set high local-pref
+ match ip address prefix-list iad2-verio-high
+ set local-preference 2000
+!
+route-map iad2-verio-in permit 60
+ description set high local-pref
+ match as-path 60
+ set local-preference 2000
+!
+route-map iad2-verio-in permit 70
+ description set normal local-pref
+ set local-preference 1000
+!
+route-map connected->ospf-1998 permit 10
+ match ip address prefix-list peer-interconnects
+!
+route-map iad2-verio-out permit 10
+ description allow datacenter ip space announcement at /20 <= length <= /24
+ match ip address prefix-list iad2-space-out
+!
+route-map iad2-verio-out deny 20
+!
+route-map iad2-verio-maint-in deny 10
+ description deny martian space
+ match ip address prefix-list std-deny
+!
+route-map iad2-verio-maint-in deny 20
+ description deny datacenter ip space
+ match ip address prefix-list iad2-space-in
+!
+route-map iad2-verio-maint-in permit 30
+ description set low local-pref for maintenance
+ set local-preference 10
+!
+snmp-server community brain#stamper RO
+snmp-server ifindex persist
+snmp-server trap-source Loopback0
+snmp-server enable traps snmp warmstart
+snmp-server enable traps hsrp
+snmp-server enable traps config
+snmp-server enable traps entity
+snmp-server enable traps envmon fan shutdown supply temperature status
+snmp-server enable traps bgp
+snmp-server enable traps frame-relay
+snmp-server enable traps rtr
+snmp-server enable traps srp
+snmp-server host 207.171.172.15 brain#stamper 
+!
+tacacs-server host 207.171.172.28
+tacacs-server host 207.171.172.27
+tacacs-server host 207.171.172.24
+tacacs-server host 207.171.172.25
+tacacs-server attempts 2
+tacacs-server timeout 2
+tacacs-server directed-request
+tacacs-server key Qu@ker8t3hatsthursday
+!
+dial-peer cor custom
+!
+!
+!
+!
+line con 0
+ exec-timeout 120 0
+ password 7 1531180F0B290B342B3226274A
+ authorization commands 1 noauthor-cmd1
+ authorization commands 15 noauthor-cmd15
+ accounting commands 1 acct-cmd1
+ accounting commands 15 acct-cmd15
+ accounting exec acct-exec
+ logging synchronous
+ login authentication admin-con
+line vty 0 4
+ access-class vty-allow in
+ exec-timeout 120 0
+ password 7 096F5D0A16063702080D172F72
+ accounting commands 1 acct-cmd1
+ accounting commands 15 acct-cmd15
+ accounting exec acct-exec
+ logging synchronous
+ login authentication admin-vty
+ transport input pad telnet ssh acercon
+line vty 5 15
+ access-class vty-allow in
+ exec-timeout 120 0
+ password 7 06251C22434D29090616010E55
+ accounting commands 1 acct-cmd1
+ accounting commands 15 acct-cmd15
+ accounting exec acct-exec
+ logging synchronous
+ login authentication admin-vty
+!
+ntp source Loopback0
+ntp update-calendar
+ntp server 207.171.172.13 source Loopback0
+ntp server 207.171.172.14 source Loopback0
+end

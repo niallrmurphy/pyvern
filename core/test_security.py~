@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+test_naming.py
+
+Created by Niall Richard Murphy on 2011-05-30.
+"""
+
+import config_parse
+import constants
+import os
+import unittest2
+import sys
+import test_infrastructure as ti
+
+
+def suite():
+  tests = ['testHostnameDefined',
+           'testDomainNameDefined',
+           'testResolversConfigured']
+  return unittest2.TestSuite(map(TestBulkNaming, tests))
+
+
+class TestBulkNaming(ti.defaultTestConfiguration):
+
+  def testHostnameDefined(self):
+    results = ti.IndividualAttributesDefined(self.cp.routers, 'hostname')
+    self.assertEqual(results, [],
+      "These routers should have hostnames defined: %s" % (results))
+
+  def testDomainNameDefined(self):
+    results = ti.IndividualAttributesDefined(self.cp.routers, 'domain_name')
+    self.assertEqual(results, [],
+      "These routers should have domain names defined: %s" % (results))
+
+  def testResolversConfigured(self):
+    results = ti.IndividualAttributesDefined(self.cp.routers, 'resolvers')
+    self.assertEqual(results, [],
+      "These routers should have resolvers defined: %s" % (results))
+
+if __name__ == '__main__':
+  suite = suite()
+  unittest2.main(testRunner=unittest2.TextTestRunner(verbosity=2)).run(suite)
